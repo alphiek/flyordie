@@ -1,28 +1,50 @@
 import React from "react"
-
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
-import Footer from '../components/footer'
-import PropTypes from "prop-types"
+import Footer from '../components/Footer/footer'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
+
+const FaqWrapper = styled.div`
+  padding-top: 5em;
+  padding-bottom: 3em;
+  font-size: 1rem;
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+const FaqItem = styled.div`
+  width: 30%;
+  margin: 1.5em;
+  text-align: center;
+`
+
+const PageWrapper = styled.div`
+  padding-top: 3em;
+  margin: 0 auto;
+  text-align: center;
+`
 
 const Faqs = ({ data }) => (
-  <div className="pattern-dark fullscreen">
+  <div className="pattern-dark">
   <GlobalStyle />
+  <PageWrapper>
     <h1>This is the page for FAQS</h1>
     <p>Do we give a FAQ? Hell Yeah</p>
-    <div>
+    <FaqWrapper>
     {data.allDatoCmsFaq.edges.map(({ node: faq }) => (
-      <div key={faq.id} >
+      <FaqItem key={faq.id} >
         <div>
           <h2>{faq.title}</h2>
           <p>{faq.help}</p>
           </div>
-        </div>
+        </FaqItem>
       ))}
-
-    </div>
+    </FaqWrapper>
     <Footer />
-    </div>
+    </PageWrapper>
+  </div>
 )
 
 export default Faqs

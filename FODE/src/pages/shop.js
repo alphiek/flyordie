@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from 'gatsby'
 
-import Footer from "../components/footer"
+import Footer from "../components/Footer/footer"
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
 

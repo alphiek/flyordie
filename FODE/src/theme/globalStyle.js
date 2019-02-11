@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: calc(0.6em + 1vw);
     font-family: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
     line-height: 130%;
-    text-transform: uppercase;
     box-sizing: border-box;
     overflow-y: scroll;
     background-color: #e5e5e5;
@@ -37,19 +36,23 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #e5e5e5;
   }
 
-  address {
-    margin: 0;
-    padding: 0;
+  div {
+    font-size: 1rem;
   }
 
-  a {
+/*  a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
-  }
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+
+  },
   a:active,
   a:hover {
     outline-width: 0;
   }
+*/
 
   article,
   aside,
@@ -83,7 +86,7 @@ export const GlobalStyle = createGlobalStyle`
     color: #1e2d51;
     font-weight: bold;
     text-rendering: optimizeLegibility;
-    font-size: 1em;
+    font-size: 1.2em;
   }
   h2 {
     margin: 0;
@@ -132,7 +135,9 @@ export const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
     padding: 0;
-  }
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    }
 
   ul {
     margin: 0 auto;

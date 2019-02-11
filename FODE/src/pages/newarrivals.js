@@ -2,7 +2,7 @@ import React from "react"
 
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
-import Footer from '../components/footer'
+import Footer from '../components/Footer/footer'
 
 const NewArrivals = () => (
   <div className="pattern-dark">

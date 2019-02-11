@@ -1,17 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
 import { graphql } from "gatsby"
-import { Helmet } from "react-helmet"
 import { GlobalStyle } from '../theme/globalStyle'
 
-import Footer from "../components/footer"
+import Footer from "../components/Footer/footer"
 import '../components/repeating-pattern.css'
 
 export default ({ data }) => (
   <div className="pattern-dark">
       <GlobalStyle />
       <div>
-      <a href="#" className="snipcart-checkout">Click here to checkout</a>
       <div className="snipcart-summary">
        Number of items: <span className="snipcart-total-items"></span></div>
       </div>
