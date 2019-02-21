@@ -2,6 +2,7 @@ import React from "react"
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
 import Footer from '../components/Footer/footer'
+import SignUpForm from '../components/Form/form'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
@@ -9,7 +10,6 @@ const FaqWrapper = styled.div`
   padding-top: 5em;
   padding-bottom: 3em;
   font-size: 1rem;
-  padding-top: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,7 +21,7 @@ const FaqItem = styled.div`
 `
 
 const PageWrapper = styled.div`
-  padding-top: 3em;
+  padding-top: 5em;
   margin: 0 auto;
   text-align: center;
 `

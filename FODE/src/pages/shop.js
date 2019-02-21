@@ -1,48 +1,65 @@
 import React from "react"
-import { Link, graphql } from 'gatsby'
-
+import styled from 'styled-components'
 import Footer from "../components/Footer/footer"
+import ShopPreview from "../components/Shop/shopPreview"
+import SignUpForm from "../components/Form/form"
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
+import shopTitle from '../images/shoptitle.svg'
 
-const Shop = ({ data }) => (
+const TitleWrapper = styled.div`
+  position: relative;
+  padding-top: 4em;
+  padding-bottom: 3em;
+  font-size: 1rem;
+  border: 1px solid black;
+`
+
+const Circle = styled.div`
+  position: relative;
+  height: 10em;
+  width: 10em;
+  margin-left: 7em;
+  border-radius: 50%;
+  background-color: white;
+`
+
+const Fode = styled.img`
+  position: absolute;
+  width: 15em;
+  z-index: 2;
+  margin-left: 5em;
+  transform: rotate(-6.21deg);
+  transform-origin: 50% 100%;
+`
+
+const IntroWrapper = styled.div`
+   padding-top: 0.5em;
+   width: 28em;
+   position: relative;
+   top: -5.2em;
+   left: 11em;
+   border-top: 0.25em dashed #1e2d51;
+`
+
+const ShopIntro = styled.h1`
+   text-transform: uppercase;
+   text-align: center;
+`
+
+const Shop = () => (
   <div className="pattern-dark">
   <GlobalStyle />
-    <h1>Exisiting to deliver everything you need to look Fresh, Stylish and Fly</h1>
-    <div>
-      {data.allDatoCmsProduct.edges.map(({ node: product }) => (
-        <div key={product.id} >
-          <div>
-            <Link to={`${product.slug}`} >
-              <img src={product.image.url} />
-            </Link>
-              <h6>
-                <Link to={`${product.slug}`}>{product.price}</Link>
-              </h6>
-            </div>
-          </div>
-        ))}
-      </div>
+    <TitleWrapper>
+    <Fode src={shopTitle} alt="House of Fode Logo"></Fode>
+    <Circle />
+    <IntroWrapper>
+    <ShopIntro>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</ShopIntro>
+    </IntroWrapper>
+    </TitleWrapper>
+    <ShopPreview />
   <Footer />
   </div>
 )
 
 export default Shop
-
-export const query = graphql`
-  query ShopQuery {
-    allDatoCmsProduct {
-      edges {
-        node {
-          id
-          itemtype
-          slug
-          price
-          image {
-            url
-          }
-        }
-      }
-    }
-  }
-`

@@ -8,10 +8,24 @@ module.exports = {
     name: 'FLY OR DIE ENTERPRISES',
     street: 'Such and such address',
     city: 'London',
-    country: 'GB',
+    country: 'UK',
     email: 'earthling@flyordie.org',
     fb: 'https://www.facebook.com/houseoffode/',
     insta: 'https://www.instagram.com/houseoffode/',
+    menuLinks:[
+     {
+       name:'home',
+       link:'/'
+     },
+     {
+       name:'shop',
+       link:'/shop'
+     },
+     {
+       name:'faqs',
+       link:'/faqs'
+     },
+   ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -39,7 +53,7 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_KEY,
-        previewMode: false,
+        previewMode: true,
         disableLiveReload: false,
         apiUrl: 'https://site-api.datocms.com',
       },

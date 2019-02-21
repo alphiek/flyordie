@@ -1,7 +1,6 @@
-/*import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react'
+import { StaticQuery, graphql, Link } from 'gatsby'
+import { NavContainer } from './navStyles'
 
 const Nav = () => (
   <StaticQuery
@@ -9,26 +8,28 @@ const Nav = () => (
       query NavQuery {
         site {
           siteMetadata {
-            menulinks {
-              name:
-              link:
+            menuLinks {
+              name
+              link
             }
           }
         }
       }
     `}
     render={data => (
-      <nav>
-      {data.siteMetadata.menulinks.map(({ menulink }) => (
-        <div key={menulink.name} >
-          <div>
-          <Link to={menulink.link}>
-            {menulink.name}
-          </Link>
-            </div>
-          </div>
-        ))}
-      </nav>
+      <NavContainer>
+       <div>
+      {data.site.siteMetadata.menuLinks.map( link =>
+        <li key={link.name}>
+          <Link to={link.link}>{link.name}</Link>
+        </li>
+        )}
+        <a href="#" class="snipcart-checkout">Click here to checkout</a>
+        <div> X </div>
+        </div>
+      </NavContainer>
+    )}
+  />
+)
 
-
-export default Nav*/
+export default Nav

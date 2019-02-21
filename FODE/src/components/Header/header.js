@@ -1,36 +1,28 @@
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import { HeaderWrapper, BurgerMenu, Line, CartWrapper } from './headerStyles'
+import React from 'react';
+import { AnchorNav, Cart, Items, SnipcartContainer, HeaderWrapper, BurgerMenu, Line, CartWrapper } from './headerStyles'
+import cart from "../../images/cartnew.svg"
 
 const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query HeaderQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-     <HeaderWrapper>
-       <BurgerMenu>
-         <Line />
-         <Line />
-         <Line />
-       </BurgerMenu>
-       <CartWrapper>
-            <a href="#" className="snipcart-checkout"></a>
-            <a href="#" alt="Link for checkout"></a>
-       </CartWrapper>
-       <div>
-       <a href="#" className="snipcart-edit-profile">Create an Account</a>
-       <a href="#" className="">Log-in</a>
-       </div>
-    </HeaderWrapper>
-   )}
-  />
+  <HeaderWrapper>
+    <BurgerMenu >
+      <Line />
+      <Line />
+      <Line />
+    </BurgerMenu>
+    <SnipcartContainer>
+      <AnchorNav href="#" className="snipcart-edit-profile">New Account</AnchorNav>
+      <AnchorNav href="#" className="">Log-in</AnchorNav>
+      <CartWrapper>
+        <a href="#" className="snipcart-checkout">
+          <Cart src={cart} alt="Checkout Icon"></Cart>
+        </a>
+        <div className="snipcart-summary">
+          <Items className="snipcart-total-items"></Items>
+        </div>
+      </CartWrapper>
+    </SnipcartContainer>
+   </ HeaderWrapper>
 )
+
 
 export default Header

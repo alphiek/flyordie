@@ -3,13 +3,14 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600,700');
 
+  @import url('https://fonts.googleapis.com/css?family=Oxygen');
+
 
   html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     font-size: calc(0.6em + 1vw);
     font-family: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
-    line-height: 130%;
     box-sizing: border-box;
     overflow-y: scroll;
     background-color: #e5e5e5;
@@ -40,19 +41,18 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
-/*  a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
+ a {
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 
   },
   a:active,
   a:hover {
     outline-width: 0;
   }
-*/
+
 
   article,
   aside,
@@ -84,10 +84,12 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: #1e2d51;
-    font-weight: bold;
+    font-weight: 400;
     text-rendering: optimizeLegibility;
-    font-size: 1.2em;
+    font-size: 1.8em;
+    line-height: 125%;
   }
+
   h2 {
     margin: 0;
     padding: 0;

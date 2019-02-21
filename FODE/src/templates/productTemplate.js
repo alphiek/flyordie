@@ -1,25 +1,28 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { GlobalStyle } from '../theme/globalStyle'
+import { CardWrapper, RangeIcon, Divider, SalesInfo, PageContainer, ImgWrapper } from '../components/Product/productCardStyles'
 
 import Footer from "../components/Footer/footer"
+import SignUpForm from "../components/Form/form"
 import '../components/repeating-pattern.css'
 
 export default ({ data }) => (
   <div className="pattern-dark">
       <GlobalStyle />
-      <div>
-      <div className="snipcart-summary">
-       Number of items: <span className="snipcart-total-items"></span></div>
-      </div>
-      <div>
-          <img src={data.datoCmsProduct.icon.url} alt={data.datoCmsProduct.icon.alt}/>
+      <PageContainer>
+      <ImgWrapper>
+        <img src={data.datoCmsProduct.image.url} alt={data.datoCmsProduct.image.alt}/>
+      </ImgWrapper>
+      <CardWrapper>
+          <RangeIcon src={data.datoCmsProduct.icon.url} alt={data.datoCmsProduct.icon.alt}></RangeIcon>
+          <Divider/>
+          <SalesInfo>
           <h1>{data.datoCmsProduct.range}</h1>
           <p>{data.datoCmsProduct.info}</p>
           <h2>{data.datoCmsProduct.itemtype}</h2>
           <p>{data.datoCmsProduct.price}.00</p>
-          <img src={data.datoCmsProduct.image.url} alt={data.datoCmsProduct.image.alt}/>
-      </div>
+          </SalesInfo>
       <button
        className="snipcart-add-item"
        data-item-id={data.datoCmsProduct.id}
@@ -35,11 +38,9 @@ export default ({ data }) => (
        data-item-custom2-value="Medium">
       Buy Now
     </button>
-    <button>
-    <a href="#" className="snipcart-edit-profile">
-    Edit profile
-    </a>
-    </button>
+    </CardWrapper>
+    </PageContainer>
+    < SignUpForm />
     <Footer />
     </div>
   )
