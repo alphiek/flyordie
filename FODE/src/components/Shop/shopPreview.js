@@ -24,7 +24,6 @@ const ShopPreview = () => (
       }
     `}
     render={data => (
-      <div>
       <Masonry>
         {data.allDatoCmsProduct.edges.map(({ node: product }) => (
           <ShopItem key={product.id} >
@@ -39,7 +38,6 @@ const ShopPreview = () => (
               </ShopItem>
           ))}
           </Masonry>
-        </div>
     )}
   />
 )

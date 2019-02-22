@@ -1,17 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GlobalStyle } from '../theme/globalStyle'
-import { CardWrapper, RangeIcon, Divider, SalesInfo, PageContainer, ImgWrapper } from '../components/Product/productCardStyles'
+import { CardWrapper, RangeIcon, Divider, SalesInfo, ImgWrapper } from '../components/Product/productCardStyles'
 import Footer from "../components/Footer/footer"
-import '../components/repeating-pattern.css'
+import { Pattern, ContentContainer } from '../globalStyles/containers'
+import patternLight from '../images/repeating-pattern.svg'
+import { color } from '../globalStyles/variables'
 
 export default ({ data }) => (
-  <div className="pattern-dark">
-      <GlobalStyle />
-      <PageContainer>
-      <ImgWrapper>
-        <img src={data.datoCmsProduct.image.url} alt={data.datoCmsProduct.image.alt}/>
-      </ImgWrapper>
+  <React.Fragment>
+  <Pattern bgColor={color.secondary} background={patternLight} padding justify="space-around">
+    <ImgWrapper src={data.datoCmsProduct.image.url} alt={data.datoCmsProduct.image.alt}/>
       <CardWrapper>
           <RangeIcon src={data.datoCmsProduct.icon.url} alt={data.datoCmsProduct.icon.alt}></RangeIcon>
           <Divider/>
@@ -37,9 +35,9 @@ export default ({ data }) => (
       Buy Now
     </button>
     </CardWrapper>
-    </PageContainer>
+    </Pattern>
     <Footer />
-    </div>
+    </React.Fragment>
   )
 
   export const query = graphql`

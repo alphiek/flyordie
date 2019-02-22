@@ -2,15 +2,14 @@ import React from "react"
 import styled from 'styled-components'
 import Footer from "../components/Footer/footer"
 import ShopPreview from "../components/Shop/shopPreview"
-import { GlobalStyle } from '../theme/globalStyle'
-import '../components/repeating-pattern.css'
+import { Pattern } from '../globalStyles/containers'
+import patternLight from '../images/repeating-pattern.svg'
+import { color } from '../globalStyles/variables'
 import shopTitle from '../images/shoptitle.svg'
 
 const TitleWrapper = styled.div`
   position: relative;
-  padding-top: 4em;
-  padding-bottom: 3em;
-  font-size: 1rem;
+  width: 100%;
 `
 
 const Circle = styled.div`
@@ -46,18 +45,19 @@ const ShopIntro = styled.h1`
 `
 
 const Shop = () => (
-  <div className="pattern-dark">
-  <GlobalStyle />
-    <TitleWrapper>
-    <Fode src={shopTitle} alt="House of Fode Logo"></Fode>
-    <Circle />
-    <IntroWrapper>
-    <ShopIntro>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</ShopIntro>
-    </IntroWrapper>
+  <React.Fragment>
+  <Pattern bgColor={color.secondary} background={patternLight} padding>
+      <TitleWrapper>
+      <Fode src={shopTitle} alt="House of Fode Logo"></Fode>
+      <Circle />
+      <IntroWrapper>
+      <ShopIntro>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</ShopIntro>
+      </IntroWrapper>
+      <ShopPreview />
     </TitleWrapper>
-    <ShopPreview />
+  </Pattern>
   <Footer />
-  </div>
+  </React.Fragment>
 )
 
 export default Shop

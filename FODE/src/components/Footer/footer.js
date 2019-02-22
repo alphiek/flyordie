@@ -1,29 +1,30 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from "gatsby"
 import PropTypes from 'prop-types'
-import { Logo, LinkWrapper, LinkChild, Anchor, AnchorLower, AnchorCopy, AddressWrapper, Divider, SocialWrapper, Icon } from './footerStyles'
+import { Logo, LinkWrapper, LinkItem, Copyright, AddressWrapper, Divider, SocialWrapper, Icon } from './footerStyles'
+import { Pattern } from '../../globalStyles/containers'
+import { Anchor } from '../../globalStyles/links'
+import { color } from '../../globalStyles/variables'
 import logoWhite from "../../images/logo-white.svg"
 import facebook from "../../images/facebook.svg"
 import instagram from "../../images/instagram.svg"
 import email from "../../images/mail.svg"
 import styled from 'styled-components'
+import patternDark from '../../images/repeating-white.svg'
 
-
-const LinkUpper = styled(Link)`
+export const LinkUpper = styled(Link)`
   font-size: 0.6em;
   letter-spacing: 0.25em;
-  color: #e5e5e5;
-  text-transform: uppercase;
-  text-decoration: none;
+  color: hsl(0, 0%, 90%);
 `
 
 const Footer = ({ data }) => (
-  <footer className="pattern-light">
+  <Pattern column bgColor={color.dullgreen} background={patternDark}>
     <Logo src={logoWhite} alt="House of Fode Logo"></Logo>
     <LinkWrapper>
-      <LinkChild><Anchor href="#">Privacy</Anchor></LinkChild>
-      <LinkChild><LinkUpper to="/faqs/" >FAQS</LinkUpper></LinkChild>
-      <LinkChild><Anchor href="#">Terms of Use</Anchor></LinkChild>
+      <LinkItem><Anchor transform color={color.secondary} href="#">Privacy</Anchor></LinkItem>
+      <LinkItem><LinkUpper to="/faqs/" >FAQS</LinkUpper></LinkItem>
+      <LinkItem><Anchor transform color={color.secondary} href="#">Terms of Use</Anchor></LinkItem>
     </LinkWrapper>
     <AddressWrapper>
       {data.site.siteMetadata.name}<br />
@@ -32,17 +33,17 @@ const Footer = ({ data }) => (
       {data.site.siteMetadata.country}<br />
     </AddressWrapper>
     <Divider />
-      <AnchorLower href="#" target="_blank">{data.site.siteMetadata.email}</AnchorLower>
+      <Anchor color={color.secondary} href="#" target="_blank">{data.site.siteMetadata.email}</Anchor>
     <SocialWrapper>
       <a href={data.site.siteMetadata.fb} target="_blank" rel="noopener noreferrer"><Icon src={facebook} alt='Facebook Link'></Icon></a>
       <a href={data.site.siteMetadata.insta} target="_blank" rel="noopener noreferrer" ><Icon src={instagram} alt='Instagram Link'></Icon></a>
       <a href="mailto:" target="_blank" rel="noopener noreferrer" ><Icon src={email} alt='Email Link'></Icon></a>
     </SocialWrapper>
-     <AnchorCopy href="https://rkkcreative.xyz">
+     <Copyright color={color.secondary} href="https://rkkcreative.xyz" target="_blank" rel="noopener noreferrer">
       © {new Date().getFullYear()}, Fly or Die Enterprises developed by RKK Creative
       {` `}
-      </AnchorCopy>
-  </footer>
+      </Copyright>
+  </Pattern>
 )
 
 export default props => (

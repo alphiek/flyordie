@@ -1,7 +1,8 @@
 import React from "react"
-import { GlobalStyle } from '../theme/globalStyle'
-import '../components/repeating-pattern.css'
 import Footer from '../components/Footer/footer'
+import { Pattern } from '../globalStyles/containers'
+import patternLight from '../images/repeating-pattern.svg'
+import { color } from '../globalStyles/variables'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
@@ -12,6 +13,7 @@ const FaqWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border
 `
 const FaqItem = styled.div`
   width: 30%;
@@ -19,16 +21,10 @@ const FaqItem = styled.div`
   text-align: center;
 `
 
-const PageWrapper = styled.div`
-  padding-top: 5em;
-  margin: 0 auto;
-  text-align: center;
-`
 
 const Faqs = ({ data }) => (
-  <div className="pattern-dark">
-  <GlobalStyle />
-  <PageWrapper>
+  <React.Fragment>
+  <Pattern column bgColor={color.secondary} background={patternLight} padding>
     <h1>This is the page for FAQS</h1>
     <p>Do we give a FAQ? Hell Yeah</p>
     <FaqWrapper>
@@ -41,9 +37,9 @@ const Faqs = ({ data }) => (
         </FaqItem>
       ))}
     </FaqWrapper>
+    </Pattern>
     <Footer />
-    </PageWrapper>
-  </div>
+  </React.Fragment>
 )
 
 export default Faqs

@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
+
 export const CardWrapper = styled.div`
+ width: 20em;
  display: flex;
  flex-direction: column;
  text-align: left;
  height: auto;
  font-size: 1rem;
- justify-content: center;
 `
 
 export const RangeIcon = styled.img`
@@ -23,15 +24,11 @@ export const Divider = styled.span`
 `
 
 export const SalesInfo = styled.div`
- width: 30%;
  display: flex;
  flex-direction: column;
  text-align: center;
 `
-export const PageContainer = styled.div`
-  display: flex;
-  `
 
-export const ImgWrapper = styled.div`
-  display: flex;
+export const ImgWrapper = styled.img`
+  width: 20em;
 `

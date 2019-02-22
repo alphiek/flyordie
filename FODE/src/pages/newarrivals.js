@@ -1,15 +1,17 @@
 import React from "react"
 
-import { GlobalStyle } from '../theme/globalStyle'
-import '../components/repeating-pattern.css'
+import { Pattern } from '../globalStyles/containers'
+import patternLight from '../images/repeating-pattern.svg'
+import { color } from '../globalStyles/variables'
 import Footer from '../components/Footer/footer'
 
 const NewArrivals = () => (
-  <div className="pattern-dark">
-  <GlobalStyle />
+  <React.Fragment>
+  <Pattern column bgColor={color.secondary} background={patternLight} padding>
     <h1>This is the page for New Arrivals</h1>
-    <Footer />
-    </div>
+  </Pattern>
+  <Footer />
+  </React.Fragment>
 )
 
 export default NewArrivals

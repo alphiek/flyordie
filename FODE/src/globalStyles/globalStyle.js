@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600,700');
-
   @import url('https://fonts.googleapis.com/css?family=Oxygen');
 
 
@@ -34,7 +33,17 @@ export const GlobalStyle = createGlobalStyle`
     -ms-font-feature-settings: "kern", "liga", "clig", "calt";
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
     font-feature-settings: "kern", "liga", "clig", "calt";
-    background-color: #e5e5e5;
+    background-color: hsl(0, 0%, 90%);
+  }
+
+  section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    font-size: 1rem;
+    align-items: center;
+    text-align: center;
+
   }
 
   div {
@@ -42,7 +51,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
  a {
-  text-transform: uppercase;
   text-decoration: none;
   margin: 0;
   padding: 0;
@@ -53,6 +61,19 @@ export const GlobalStyle = createGlobalStyle`
     outline-width: 0;
   }
 
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    border-style: none;
+  }
+
+address {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
 
   article,
   aside,
@@ -67,13 +88,6 @@ export const GlobalStyle = createGlobalStyle`
   section,
   summary {
     display: block;
-  }
-
-  img {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    border-style: none;
   }
 
   svg:not(:root) {
@@ -277,37 +291,5 @@ export const GlobalStyle = createGlobalStyle`
   form {
    margin: 0;
    padding: 0;
-  }
-
-  table {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  thead {
-    text-align: left;
-  }
-  td,
-  th {
-    text-align: left;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
-    font-feature-settings: "tnum";
-    -moz-font-feature-settings: "tnum";
-    -ms-font-feature-settings: "tnum";
-    -webkit-font-feature-settings: "tnum";
-    padding-left: 0.96667rem;
-    padding-right: 0.96667rem;
-    padding-top: 0.725rem;
-    padding-bottom: calc(0.725rem - 1px);
-  }
-  th:first-child,
-  td:first-child {
-    padding-left: 0;
-  }
-  th:last-child,
-  td:last-child {
-    padding-right: 0;
   }
 `

@@ -1,70 +1,51 @@
 import styled from 'styled-components'
+import { Wrapper } from '../../globalStyles/containers'
+import { Anchor } from '../../globalStyles/links'
+import { fontSize, spacing, color, weight } from '../../globalStyles/variables'
 
 export const Logo = styled.img`
-  margin: 0 auto;
   padding-top: 5em;
   width: 6em;
 `
-
-export const Anchor = styled.a`
-  font-size: 0.6em;
-  letter-spacing: 0.25em;
-  color: #e5e5e5;
+export const Icon = styled.img`
+  width: 1.4em;
+  height: 1.4em;
 `
 
-export const AnchorLower = styled(Anchor)`
-  text-transform: none;
-`
+export const Copyright = styled(Anchor)`
+  font-size: 0.5em;
+  padding-bottom: 6em;
+  font-weight: ${weight.light};
+  `
 
-export const AnchorCopy = styled(AnchorLower)`
-    font-size: 0.5em;
-    padding-bottom: 6em;
-    font-weight: 300;
-    `
-export const LinkWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const LinkWrapper = styled(Wrapper)`
   width: 30em;
-  border-bottom: 0.25em dashed #1e2d51;
+  border-bottom: 0.25em dashed ${color.primary};
   padding-top: 1em;
   padding-bottom: 1em;
-  margin-bottom: 1em;
-  margin-top: 1em;
 `
-export const LinkChild = styled.span`
+export const SocialWrapper = styled(Wrapper)`
+  width: 6.5em;
+  align-items: center;
+`
+
+export const LinkItem = styled.span`
   width: 10em;
   margin: 0 auto;
   text-align: center;
 `
 
 export const AddressWrapper = styled.address`
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
-  font-size: 0.6rem;
+  font-size: ${fontSize.small};
   font-style: normal;
-  color: #e5e5e5;
-  letter-spacing: 0.25em;
+  color: ${color.secondary};
+  letter-spacing: ${spacing.wide};
 `
 
 export const Divider = styled.span`
   margin-top: 0.75em;
   margin-bottom: 0.75em;
   width: 1em;
-  background-color: #1e2d51;
+  background-color: ${color.primary};
   height: 0.25em;
-`
-export const SocialWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 6.5em;
-  align-items: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
-`
-export const Icon = styled.img`
-  margin: 0 auto;
-  display: block;
-  width: 1.4em;
-  height: 1.4em;
 `
