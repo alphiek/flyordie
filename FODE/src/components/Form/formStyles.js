@@ -23,7 +23,7 @@ export const FormText = styled.h5`
   text-align: center;
   width: 5em;
 `
-export const GDPR = styled.p`
+export const Gdpr = styled.p`
   color: #e5e5e5;
   font-weight: 300;
   text-align: center;

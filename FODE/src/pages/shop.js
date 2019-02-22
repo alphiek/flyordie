@@ -2,7 +2,6 @@ import React from "react"
 import styled from 'styled-components'
 import Footer from "../components/Footer/footer"
 import ShopPreview from "../components/Shop/shopPreview"
-import SignUpForm from "../components/Form/form"
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
 import shopTitle from '../images/shoptitle.svg'
@@ -12,7 +11,6 @@ const TitleWrapper = styled.div`
   padding-top: 4em;
   padding-bottom: 3em;
   font-size: 1rem;
-  border: 1px solid black;
 `
 
 const Circle = styled.div`

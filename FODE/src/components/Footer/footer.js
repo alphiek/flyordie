@@ -34,9 +34,9 @@ const Footer = ({ data }) => (
     <Divider />
       <AnchorLower href="#" target="_blank">{data.site.siteMetadata.email}</AnchorLower>
     <SocialWrapper>
-      <a href={data.site.siteMetadata.fb} target="_blank"><Icon src={facebook} alt='Facebook Link'></Icon></a>
-      <a href={data.site.siteMetadata.insta} target="_blank"><Icon src={instagram} alt='Instagram Link'></Icon></a>
-      <a href="mailto:" target="_blank"><Icon src={email} alt='Email Link'></Icon></a>
+      <a href={data.site.siteMetadata.fb} target="_blank" rel="noopener noreferrer"><Icon src={facebook} alt='Facebook Link'></Icon></a>
+      <a href={data.site.siteMetadata.insta} target="_blank" rel="noopener noreferrer" ><Icon src={instagram} alt='Instagram Link'></Icon></a>
+      <a href="mailto:" target="_blank" rel="noopener noreferrer" ><Icon src={email} alt='Email Link'></Icon></a>
     </SocialWrapper>
      <AnchorCopy href="https://rkkcreative.xyz">
       © {new Date().getFullYear()}, Fly or Die Enterprises developed by RKK Creative

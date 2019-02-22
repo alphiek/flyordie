@@ -2,7 +2,6 @@ import React from "react"
 import { GlobalStyle } from '../theme/globalStyle'
 import '../components/repeating-pattern.css'
 import Footer from '../components/Footer/footer'
-import SignUpForm from '../components/Form/form'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from "gatsby"
-import { ShopWrapper, ShopItem } from './shopPreviewStyles'
+import { ShopItem } from './shopPreviewStyles'
+import Masonry from 'react-masonry-component'
 
 const ShopPreview = () => (
   <StaticQuery
@@ -15,6 +16,7 @@ const ShopPreview = () => (
               price
               image {
                 url
+                alt
               }
             }
           }
@@ -23,12 +25,12 @@ const ShopPreview = () => (
     `}
     render={data => (
       <div>
-      <ShopWrapper>
+      <Masonry>
         {data.allDatoCmsProduct.edges.map(({ node: product }) => (
           <ShopItem key={product.id} >
             <div>
               <Link to={`${product.slug}`} >
-                <img src={product.image.url} />
+                <img src={product.image.url} alt={product.image.alt} />
               </Link>
                 <h6>
                   <Link to={`${product.slug}`}>{product.price}</Link>
@@ -36,7 +38,7 @@ const ShopPreview = () => (
                 </div>
               </ShopItem>
           ))}
-          </ShopWrapper>
+          </Masonry>
         </div>
     )}
   />

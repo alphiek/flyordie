@@ -2,9 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GlobalStyle } from '../theme/globalStyle'
 import { CardWrapper, RangeIcon, Divider, SalesInfo, PageContainer, ImgWrapper } from '../components/Product/productCardStyles'
-
 import Footer from "../components/Footer/footer"
-import SignUpForm from "../components/Form/form"
 import '../components/repeating-pattern.css'
 
 export default ({ data }) => (
@@ -40,7 +38,6 @@ export default ({ data }) => (
     </button>
     </CardWrapper>
     </PageContainer>
-    < SignUpForm />
     <Footer />
     </div>
   )

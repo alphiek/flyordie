@@ -13,7 +13,7 @@ const Header = () => (
       <AnchorNav href="#" className="snipcart-edit-profile">New Account</AnchorNav>
       <AnchorNav href="#" className="">Log-in</AnchorNav>
       <CartWrapper>
-        <a href="#" className="snipcart-checkout">
+        <a href="www.#.com" className="snipcart-checkout">
           <Cart src={cart} alt="Checkout Icon"></Cart>
         </a>
         <div className="snipcart-summary">
