@@ -1,38 +1,48 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from 'styled-components'
+import { Title } from '../globalStyles/other'
+import { LandingWrapper, CircleWrapper, SquBg, Squ, LinkWrap, OuterCircle, MiddleCircle, FrontCircle, WhiteInner, Logo, Divider, LinkDivider } from '../components/Landing/landingStyles'
 import patternLight from '../images/repeating-pattern.svg'
-import { color } from '../globalStyles/variables'
+import squadron from '../images/Squadron.svg'
+import { color, fontSize, spacing, weight } from '../globalStyles/variables'
+import logolanding from '../images/logoLanding.svg'
+import styled from 'styled-components'
 
-const LinkWrap = styled.div`
-  display: flex;
-  width: 15em;
-  font-size: 1rem;
-  align-items: center;
+const LinkNew = styled(Link)`
+  font-size: ${fontSize.largeLink};
+  font-weight: ${weight.semib};
+  color: ${color.dullblue};
+  text-transform: uppercase;
 `
 
-const LandingWrapper = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: ${props => props.column ? "column" : "row"};
-  background-color: ${props => props.bgColor};
-  padding-top: ${props => props.padding ? "5em" : "0"};
-  background-image: ${props => `url(${props.background})`};
-  background-repeat: repeat;
-  background-size: 90px 90px;
-  overflow: hidden;
-  height: 100vh;
-
+const LinkShop = styled(LinkNew)`
+  color: ${color.dullred};
 `
+
 
 const IndexPage = () => (
-  <LandingWrapper column bgColor={color.secondary} background={patternLight} padding>
-    <h1>We all die but not all of us fly</h1>
-    <LinkWrap>
-    <Link to="/shop/">Shop</Link>
-    <Link to="/newarrivals/">New Arrivals</Link>
-    </LinkWrap>
+  <LandingWrapper column bgColor={color.secondary} background={patternLight}>
+  <SquBg />
+  <CircleWrapper>
+    <OuterCircle>
+      <MiddleCircle>
+        <FrontCircle>
+          <WhiteInner>
+            <Logo src={logolanding} alt='FODE Logo' />
+            <Title>We all die but not all of us fly!</Title>
+            <Divider />
+            <LinkWrap>
+              <LinkNew to="/newarrivals/">New Arrivals</LinkNew>
+              <LinkDivider />
+              <LinkShop to="/shop/">Shop</LinkShop>
+            </LinkWrap>
+          </WhiteInner>
+         </FrontCircle>
+       </MiddleCircle>
+    </OuterCircle>
+    <Squ src={squadron} alt='Squadron Squirrel' />
+  </CircleWrapper>
+
   </LandingWrapper>
 )
 

@@ -12,11 +12,17 @@ export const color = {
 
 export const fontSize = {
   xsmall: "0.5em",
-  small: "0.6em"
+  small: "0.6em",
+  medsmall: "0.7em",
+  medium: "1.2em",
+  largeLink: "1.4em",
+  large: "1.5em"
 }
 
 export const spacing = {
-  wide: "0.25em"
+  wide: "0.15em",
+  slim: "-0.05em",
+  std: "-0.01em"
 }
 
 export const weight = {

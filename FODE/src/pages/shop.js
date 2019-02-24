@@ -1,61 +1,27 @@
 import React from "react"
-import styled from 'styled-components'
 import Footer from "../components/Footer/footer"
 import ShopPreview from "../components/Shop/shopPreview"
+import Form from "../components/Form/form"
+import { TitleShop, TitleWrapper, Fode, Circle, IntroWrapper } from "../components/Shop/shopStyles"
 import { Pattern } from '../globalStyles/containers'
-import patternLight from '../images/repeating-pattern.svg'
 import { color } from '../globalStyles/variables'
+import patternLight from '../images/repeating-pattern.svg'
 import shopTitle from '../images/shoptitle.svg'
 
-const TitleWrapper = styled.div`
-  position: relative;
-  width: 100%;
-`
-
-const Circle = styled.div`
-  position: relative;
-  height: 10em;
-  width: 10em;
-  margin-left: 7em;
-  border-radius: 50%;
-  background-color: white;
-`
-
-const Fode = styled.img`
-  position: absolute;
-  width: 15em;
-  z-index: 2;
-  margin-left: 5em;
-  transform: rotate(-6.21deg);
-  transform-origin: 50% 100%;
-`
-
-const IntroWrapper = styled.div`
-   padding-top: 0.5em;
-   width: 28em;
-   position: relative;
-   top: -5.2em;
-   left: 11em;
-   border-top: 0.25em dashed #1e2d51;
-`
-
-const ShopIntro = styled.h1`
-   text-transform: uppercase;
-   text-align: center;
-`
 
 const Shop = () => (
   <React.Fragment>
   <Pattern bgColor={color.secondary} background={patternLight} padding>
-      <TitleWrapper>
+    <TitleWrapper>
       <Fode src={shopTitle} alt="House of Fode Logo"></Fode>
       <Circle />
       <IntroWrapper>
-      <ShopIntro>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</ShopIntro>
+        <TitleShop>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</TitleShop>
       </IntroWrapper>
       <ShopPreview />
     </TitleWrapper>
   </Pattern>
+  <Form />
   <Footer />
   </React.Fragment>
 )

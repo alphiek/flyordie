@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
     font-size: calc(0.6em + 1vw);
     font-family: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+    line-height: 130%;
     box-sizing: border-box;
     overflow-y: scroll;
     background-color: #e5e5e5;
@@ -75,6 +76,11 @@ address {
   text-align: center;
 }
 
+hr {
+  padding: 0px;
+  margin: 0px;
+}
+
   article,
   aside,
   details,
@@ -97,11 +103,7 @@ address {
   h1 {
     margin: 0;
     padding: 0;
-    color: #1e2d51;
-    font-weight: 400;
     text-rendering: optimizeLegibility;
-    font-size: 1.8em;
-    line-height: 125%;
   }
 
   h2 {
@@ -241,19 +243,7 @@ address {
   button:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
-  fieldset {
-    border: 1px solid silver;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
-  }
-  legend {
-    box-sizing: border-box;
-    color: inherit;
-    display: table;
-    max-width: 100%;
-    padding: 0;
-    white-space: normal;
-  }
+
   textarea {
     overflow: auto;
   }
@@ -276,17 +266,12 @@ address {
   }
   ::-webkit-input-placeholder {
     color: inherit;
-    opacity: 0.54;
   }
   ::-webkit-file-upload-button {
     -webkit-appearance: button;
     font: inherit;
   }
 
-  fieldset {
-    margin: 0;
-    padding: 0;
-  }
 
   form {
    margin: 0;

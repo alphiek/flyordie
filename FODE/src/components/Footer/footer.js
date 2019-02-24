@@ -3,7 +3,7 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import PropTypes from 'prop-types'
 import { Logo, LinkWrapper, LinkItem, Copyright, AddressWrapper, Divider, SocialWrapper, Icon } from './footerStyles'
 import { Pattern } from '../../globalStyles/containers'
-import { Anchor } from '../../globalStyles/links'
+import { Anchor } from '../../globalStyles/other'
 import { color } from '../../globalStyles/variables'
 import logoWhite from "../../images/logo-white.svg"
 import facebook from "../../images/facebook.svg"
@@ -12,7 +12,8 @@ import email from "../../images/mail.svg"
 import styled from 'styled-components'
 import patternDark from '../../images/repeating-white.svg'
 
-export const LinkUpper = styled(Link)`
+
+const LinkUpper = styled(Link)`
   font-size: 0.6em;
   letter-spacing: 0.25em;
   color: hsl(0, 0%, 90%);

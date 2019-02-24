@@ -1,5 +1,6 @@
 import React from "react"
 import Footer from '../components/Footer/footer'
+import Form from '../components/Form/form'
 import { Pattern } from '../globalStyles/containers'
 import patternLight from '../images/repeating-pattern.svg'
 import { color } from '../globalStyles/variables'
@@ -38,6 +39,7 @@ const Faqs = ({ data }) => (
       ))}
     </FaqWrapper>
     </Pattern>
+    <Form />
     <Footer />
   </React.Fragment>
 )

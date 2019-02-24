@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Wrapper } from '../../globalStyles/containers'
-import { Anchor } from '../../globalStyles/links'
+import { Anchor } from '../../globalStyles/other'
 import { fontSize, spacing, color, weight } from '../../globalStyles/variables'
 
 export const Logo = styled.img`
