@@ -1,35 +1,18 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import { NavContainer } from './navStyles'
+import React, {Component} from 'react'
+import { NavContainer, Close } from './navStyles'
+import NavItems from './navItems'
 
-const Nav = () => (
-  <StaticQuery
-    query={graphql`
-      query NavQuery {
-        site {
-          siteMetadata {
-            menuLinks {
-              name
-              link
-            }
-          }
-        }
-      }
-    `}
-    render={data => (
+
+class Nav extends Component {
+
+  render() {
+    return (
       <NavContainer>
-       <div>
-      {data.site.siteMetadata.menuLinks.map( link =>
-        <li key={link.name}>
-          <Link to={link.link}>{link.name}</Link>
-        </li>
-        )}
-        <a href="#" class="snipcart-checkout">Click here to checkout</a>
-        <div> X </div>
-        </div>
-      </NavContainer>
-    )}
-  />
-)
+       <Close onClick={this.props.navToggle}>&times;</Close>
+       <NavItems />
+       </NavContainer>
+    )
+  }
+}
 
 export default Nav

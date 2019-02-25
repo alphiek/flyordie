@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { CardWrapper, RangeIcon, Divider, SalesInfo, ImgWrapper } from '../components/Product/productCardStyles'
 import Footer from "../components/Footer/footer"
 import Form from '../components/Form/form'
-import { Pattern, ContentContainer } from '../globalStyles/containers'
+import { Pattern } from '../globalStyles/containers'
 import patternLight from '../images/repeating-pattern.svg'
 import { color } from '../globalStyles/variables'
 

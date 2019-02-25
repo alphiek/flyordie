@@ -33,6 +33,8 @@ export const FormText = styled.p`
 
 export const Input = styled.input`
   width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   text-align: center;
   text-transform: uppercase;
   font-size: ${fontSize.xsmall};
@@ -57,13 +59,17 @@ export const Consent = styled.p`
   margin-top: 0.5em;
 `
 export const Checkbox = styled.input`
-  margin-bottom: 1.5em;
+  margin-bottom: 1.8em;
 `
 
 export const SubmitButton = styled.button`
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 auto;
   position: absolute;
   bottom: -2em;
-  left: 12.5em;
+  left: 12.8em;
   border-radius: 50%;
   border: 0.15em solid ${color.secondary};
   width: 4em;

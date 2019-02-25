@@ -4,7 +4,7 @@ import { Title } from '../globalStyles/other'
 import { LandingWrapper, CircleWrapper, SquBg, Squ, LinkWrap, OuterCircle, MiddleCircle, FrontCircle, WhiteInner, Logo, Divider, LinkDivider } from '../components/Landing/landingStyles'
 import patternLight from '../images/repeating-pattern.svg'
 import squadron from '../images/Squadron.svg'
-import { color, fontSize, spacing, weight } from '../globalStyles/variables'
+import { color, fontSize, weight } from '../globalStyles/variables'
 import logolanding from '../images/logoLanding.svg'
 import styled from 'styled-components'
 

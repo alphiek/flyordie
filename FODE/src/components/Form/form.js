@@ -5,6 +5,16 @@ const emailRegex = RegExp(
   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 );
 
+const validateForm = (errors) => {
+  let valid = true;
+
+  Object.values(errors).forEach(
+    // if we have an error string set valid to false
+    (val) => val.length > 0 && (valid = false)
+  );
+  return valid;
+};
+
 
 class Form extends Component {
    constructor(props) {
@@ -17,89 +27,76 @@ class Form extends Component {
        firstName: {
          value: '',
          touched: false,
-         isValidated: false,
-         errors: ''
        },
        email: {
          value: '',
          touched: false,
-         isValidated: false,
-         errors: '',
+       },
+       errors: {
+         email: '',
+         name: '',
+         consent: ''
        }
      };
 
-     this.handleConsentChange = this.handleConsentChange.bind(this);
-     this.consentValidation = this.consentValidation.bind(this);
      this.handleInputChange = this.handleInputChange.bind(this);
-     this.nameValidation = this.nameValidation.bind(this);
-     this.emailValidation = this.emailValidation.bind(this);
    }
 
-   handleConsentChange(event) {
-     const target = event.target;
-     const input = target.checked;
+
+   handleInputChange(event) {
+     event.preventDefault();
+
+     const { name, value } = event.target;
+     let errors = this.state.errors;
+     let consent = this.state.consent;
+     const input = event.target.checked;
+
      this.setState({
        consent: {
          touched: true,
          value: input,
        }
      });
+
+     switch (name) {
+     case 'firstName':
+       errors.name =
+         value.length < 3
+           ? 'Name must be 2 characters long!'
+           : '';
+       break;
+     case 'email':
+       errors.email =
+         emailRegex.test(value)
+           ? ''
+           : 'Email is not valid!';
+       break;
+     case 'consent':
+      errors.consent =
+        !consent.value
+         ? 'consent must be checked'
+         : '';
+       break;
+     default:
+       break;
    }
 
-   handleInputChange(event) {
-     const target = event.target;
-     const input = target.value;
-     const name = target.name;
+   this.setState({errors, [name]: value}, ()=> {
+    console.log(errors)
+})
+}
 
-     this.setState({
-       [name]: {
-         touched: true,
-         value: input,
-         isValidated: false,
-         errors: ''
-       }
-     });
-   }
-
-   nameValidation() {
-     let touched = this.state.firstName.touched;
-     let letterCounter = this.state.firstName.value;
-     let errors = this.state.firstName.errors;
-
-     if ( touched === true && letterCounter.length < 2 ) {
-       console.log('name too short');
-       return (
-       <span>Name too short</span>
-     )} else if ( touched === false ){
-       console.log('enter a name');
-       return (
-       <span>Name must be over two characters</span>
-     )};
-       return null;
-     }
-
-     emailValidation() {
-       let touched = this.state.email.touched;
-       let emailCheck = this.state.email.value;
-       if ( emailRegex.test(emailCheck) === false ) {
-         console.log('not a correct email')
-         return (
-         <span>Unfortunately that is not a valid email</span>
-         )};
-       return null;
-       }
-
-       consentValidation() {
-         let touched = this.state.consent.touched;
-         let consent = this.state.consent.value;
-         if ( touched === true && consent === false ) {
-           return (
-           <span>Please agree to be contacted to receive the offers</span>
-           )};
-           return null;
-         }
+handleSubmit = (event) => {
+  event.preventDefault();
+  if(validateForm(this.state.errors)) {
+    console.info('Valid Form')
+  }else{
+    console.error('Invalid Form')
+  }
+}
 
       render() {
+        const {errors} = this.state;
         return(
           <FormSectionWrapper>
             <FormText>Yes Mate! Send me all the offers!</FormText>
@@ -114,7 +111,8 @@ class Form extends Component {
                   onChange={this.handleInputChange}
                   noValidate />
               </label>
-              <Error>{this.nameValidation()}</Error>
+              {errors.name.length > 0 &&
+              <Error>{errors.name}</Error>}
               <label htmlFor="email">
                 <Input
                   name="email"
@@ -125,23 +123,25 @@ class Form extends Component {
                   noValidate
                   />
               </label>
-              <Error>{this.emailValidation()}</Error>
+              {errors.email.length > 0 &&
+              <Error>{errors.email}</Error>}
               <Consent>
               I agree with the T&CS, Privacy Policy and that FODE can
               contact me regarding their most excellent forthcoming promos
               </Consent>
-              <Error>{this.consentValidation()}</Error>
+              <Error>{errors.consent}</Error>
               <label htmlFor="consent">
                 <Checkbox
                   name="consent"
                   type="checkbox"
                   checked={this.state.consent.value}
-                  onChange={this.handleConsentChange}
+                  onChange={this.handleInputChange}
                   noValidate
                   />
               </label>
               <SubmitButton
-                 type='submit'>
+                 type='submit'
+                 onClick={this.handleSubmit}>
               submit
               </SubmitButton>
             </FormWrapper>

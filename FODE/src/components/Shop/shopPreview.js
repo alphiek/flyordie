@@ -1,7 +1,18 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from "gatsby"
-import { ShopItem } from './shopPreviewStyles'
+import { ShopItem, MasonryWrapper, InfoWrapper, ProductDesc, Divider } from './shopPreviewStyles'
 import Masonry from 'react-masonry-component'
+import styled from 'styled-components'
+import { color, fontSize } from '../../GlobalStyles/variables'
+
+const ShopLink = styled(Link)`
+  font-size: ${fontSize.xsmall};
+  text-transform: uppercase;
+  margin-top: 0;
+  padding: 0;
+  color: ${color.primary};
+  line-height: 160%;
+`
 
 const ShopPreview = () => (
   <StaticQuery
@@ -13,7 +24,7 @@ const ShopPreview = () => (
               id
               itemtype
               slug
-              price
+              shopdescription
               image {
                 url
                 alt
@@ -24,20 +35,24 @@ const ShopPreview = () => (
       }
     `}
     render={data => (
+      <MasonryWrapper>
       <Masonry>
         {data.allDatoCmsProduct.edges.map(({ node: product }) => (
           <ShopItem key={product.id} >
             <div>
+              <InfoWrapper>
+              <ProductDesc>{product.shopdescription}</ProductDesc>
+              <Divider />
+              <ShopLink to={`${product.slug}`} >SHOP</ShopLink>
+              </InfoWrapper>
               <Link to={`${product.slug}`} >
                 <img src={product.image.url} alt={product.image.alt} />
               </Link>
-                <h6>
-                  <Link to={`${product.slug}`}>{product.price}</Link>
-                </h6>
                 </div>
               </ShopItem>
           ))}
           </Masonry>
+        </MasonryWrapper>
     )}
   />
 )

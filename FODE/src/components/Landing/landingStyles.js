@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { fontSize, spacing, color, weight } from '../../globalStyles/variables'
-import Title from '../../globalStyles/other'
+import { color } from '../../globalStyles/variables'
 
 export const LandingWrapper = styled.main`
     width: 100%;

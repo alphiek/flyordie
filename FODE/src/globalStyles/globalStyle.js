@@ -142,12 +142,14 @@ hr {
   }
   h6 {
     margin-left: 0;
-    margin: 0;
-    padding: 0;
-    color: #1e2d51;
-    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
     text-rendering: optimizeLegibility;
-    font-size: 0.5em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    line-height: 100%;
+    margin-bottom: -0.4em;
+    margin-top: 0.5em;
   }
 
   p {

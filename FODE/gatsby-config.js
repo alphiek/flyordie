@@ -13,17 +13,21 @@ module.exports = {
     fb: 'https://www.facebook.com/houseoffode/',
     insta: 'https://www.instagram.com/houseoffode/',
     menuLinks:[
+      {
+        name:'New Arrivals',
+        link:'/newarrivals'
+      },
      {
-       name:'home',
-       link:'/'
-     },
-     {
-       name:'shop',
+       name:'Shop',
        link:'/shop'
      },
      {
-       name:'faqs',
+       name:'Faqs',
        link:'/faqs'
+     },
+     {
+       name:'Home',
+       link:'/'
      },
    ]
   },

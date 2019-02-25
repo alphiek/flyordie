@@ -38,6 +38,7 @@ export const BurgerMenu = styled(Flex)`
   width: 2em;
   height: 1.25em;
   margin-left: 1em;
+  cursor: pointer;
 `
 
 export const Cart = styled.img`
@@ -54,6 +55,7 @@ export const Items = styled.span`
   background-color: ${color.white};
   color: ${color.primary};
   text-align: center;
+  line-height: 140%;
 `
 
 export const AnchorNav = styled.a`
@@ -65,8 +67,25 @@ export const AnchorNav = styled.a`
   `
 
 
-export const Line = styled.span`
+export const TopLine = styled.span`
   width: 100%;
   height: 0.25em;
   background-color: ${color.primary};
+  transition: 0.5s;
+
+  ${BurgerMenu}: hover & {
+    transform: scaleX(0.5);
+    transform-origin: left;
+  }
+`
+
+export const MidLine = styled(TopLine)`
+  ${BurgerMenu}: hover & {
+    transform: scaleX(0.6);
+  }
+`
+export const BottomLine = styled(TopLine)`
+  ${BurgerMenu}: hover & {
+    transform: scaleX(0.7);
+  }
 `
