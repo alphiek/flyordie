@@ -9,7 +9,7 @@ module.exports = {
     street: 'Such and such address',
     city: 'London',
     country: 'UK',
-    email: 'earthling@flyordie.org',
+    email: 'info@fode.org.uk',
     fb: 'https://www.facebook.com/houseoffode/',
     insta: 'https://www.instagram.com/houseoffode/',
     menuLinks:[
@@ -57,7 +57,7 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_KEY,
-        previewMode: true,
+        previewMode: false,
         disableLiveReload: false,
         apiUrl: 'https://site-api.datocms.com',
       },

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color, fontSize } from '../../GlobalStyles/variables'
+import { color, fontSize } from '../../GlobalCss/variables'
 
 export const ShopItem = styled.div`
   position: relative;
@@ -11,12 +11,13 @@ export const ShopItem = styled.div`
 `
 
 export const MasonryWrapper = styled.div`
-  padding-left: 3em;
+  margin: 0 auto;
+  padding-top: 2em;
+  padding-left: 5em;
   padding-right: 3em;
   padding-bottom: 3em;
   margin:0 auto;
-  border: 1px solid black;
-
+  background-color: ${color.primary};
 `
 
 export const InfoWrapper = styled.div`

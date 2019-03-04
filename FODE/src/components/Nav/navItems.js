@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { LinkWrapper, LinkRotate } from './navStyles'
 import styled from 'styled-components'
-import { color } from '../../globalStyles/variables'
+import { color } from '../../GlobalCss/variables'
 
 const NavLink = styled(Link)`
   color: ${color.lightblue};

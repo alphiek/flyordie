@@ -1,15 +1,22 @@
 import styled from 'styled-components'
-import { fontSize, spacing, color, weight } from '../../globalStyles/variables'
-import { SectionWrapper } from '../../globalStyles/containers'
+import { fontSize, spacing, color, weight } from '../../GlobalCss/variables'
 
-export const FormSectionWrapper = styled(SectionWrapper)`
+export const ConsentLink = styled.a`
+  color: ${color.secondary};
+  text-decoration: underline;
+`
+
+export const FormSectionWrapper = styled.div`
+  display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color ${color.primary};
-  padding-top: 3em;
+  padding-top: 13em;
   padding-bottom: 5em;
+  margin-top: -12em;
+
 `
 
 export const FormWrapper = styled.form`
@@ -18,8 +25,16 @@ export const FormWrapper = styled.form`
   padding: 1em;
   flex-direction: column;
   justify-content: center;
-  width: 30em;
+  align-items: center;
+  width: 50vw;
   border: 0.25em dashed ${color.lightgreen};
+
+  @media (max-width: 767px) {
+  width: 75vw;
+  }
+  @media (max-width: 479px) {
+  width: 80vw;
+}
 `
 
 export const FormText = styled.p`
@@ -32,7 +47,8 @@ export const FormText = styled.p`
 `
 
 export const Input = styled.input`
-  width: 100%;
+  width: 40vw;
+  line-height: 200%;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   text-align: center;
@@ -42,6 +58,12 @@ export const Input = styled.input`
   background: ${color.secondary};
   letter-spacing: ${spacing.wide};
   color: ${color.primary};
+  @media (max-width: 767px) {
+  width: 65vw;
+  }
+  @media (max-width: 479px) {
+  width: 70vw;
+}
 `
 
 export const Error = styled.p`
@@ -51,30 +73,35 @@ export const Error = styled.p`
   color: ${color.secondary};
 `
 export const Consent = styled.p`
-  color: #e5e5e5;
-  font-size: ${fontSize.medsmall};
+  color: ${color.secondary};
+  font-size: ${fontSize.small};
   font-weight: ${weight.normal};
-  line-height: 120%;
+  line-height: 135%;
   text-align: center;
   margin-top: 0.5em;
+  @media (max-width: 767px) {
+  width: 65vw;
+  }
+  @media (max-width: 479px) {
+  width: 70vw;
+}
 `
 export const Checkbox = styled.input`
-  margin-bottom: 1.8em;
+
 `
 
 export const SubmitButton = styled.button`
   padding: 0;
-  display: table-cell;
-  vertical-align: middle;
   margin: 0 auto;
-  position: absolute;
-  bottom: -2em;
-  left: 12.8em;
+  position: relative;
+  margin-top: -2.5em;
+  bottom: -3.2em;
   border-radius: 50%;
   border: 0.15em solid ${color.secondary};
   width: 4em;
   height: 4em;
   background-color: ${color.primary};
-  color: #e5e5e5;
+  color: ${color.secondary};
   font-weight: 300;
+  font-size: ${fontSize.medsmall};
 `

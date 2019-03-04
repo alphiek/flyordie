@@ -3,7 +3,7 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import { ShopItem, MasonryWrapper, InfoWrapper, ProductDesc, Divider } from './shopPreviewStyles'
 import Masonry from 'react-masonry-component'
 import styled from 'styled-components'
-import { color, fontSize } from '../../GlobalStyles/variables'
+import { color, fontSize } from '../../GlobalCss/variables'
 
 const ShopLink = styled(Link)`
   font-size: ${fontSize.xsmall};

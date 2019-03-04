@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fontSize, spacing, color, weight } from '../../globalStyles/variables'
+import { fontSize, spacing, color, weight } from '../../GlobalCss/variables'
 
 export const HeaderWrapper = styled.header`
   width: 100%;
@@ -28,7 +28,7 @@ export const CartWrapper = styled(Flex)`
 export const SnipcartContainer = styled(Flex)`
   justify-content: space-between;
   align-items: center;
-  width: 15em;
+  width: 13.5em;
   margin-right: 0.5em;
 `
 

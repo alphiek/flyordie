@@ -1,8 +1,8 @@
 import React from "react"
 
-import { Pattern } from '../globalStyles/containers'
+import { Pattern } from '../GlobalCss/containers'
 import patternLight from '../images/repeating-pattern.svg'
-import { color } from '../globalStyles/variables'
+import { color } from '../GlobalCss/variables'
 import Footer from '../components/Footer/footer'
 
 const NewArrivals = () => (

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { Title } from '../../globalStyles/other'
-import { weight } from '../../globalStyles/variables'
+import { Title } from '../../GlobalCss/other'
+import { weight } from '../../GlobalCss/variables'
+
 
 export const TitleShop = styled(Title)`
   letter-spacing: 0;
@@ -38,10 +39,4 @@ export const IntroWrapper = styled.div`
    top: -5.4em;
    left: 11em;
    border-top: 0.25em dashed #1e2d51;
-`
-
-export const Blurb = styled.div`
- float: right;
- border: 1px solid black;
- margin: 0 auto;
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color } from '../../globalStyles/variables'
+import { color } from '../../GlobalCss/variables'
 
 export const NavContainer = styled.nav`
   height: 100vh;

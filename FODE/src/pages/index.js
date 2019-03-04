@@ -1,10 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Title } from '../globalStyles/other'
-import { LandingWrapper, CircleWrapper, SquBg, Squ, LinkWrap, OuterCircle, MiddleCircle, FrontCircle, WhiteInner, Logo, Divider, LinkDivider } from '../components/Landing/landingStyles'
+import { LandingWrapper, LandingTitle, CircleWrapper, SquBg, Squ, SquMob, LinkWrap, OuterCircle, MiddleCircle, FrontCircle, WhiteInner, Logo, Divider, LinkDivider } from '../components/Landing/landingStyles'
 import patternLight from '../images/repeating-pattern.svg'
 import squadron from '../images/Squadron.svg'
-import { color, fontSize, weight } from '../globalStyles/variables'
+import { color, fontSize, weight } from '../GlobalCss/variables'
 import logolanding from '../images/logoLanding.svg'
 import styled from 'styled-components'
 
@@ -13,6 +12,12 @@ const LinkNew = styled(Link)`
   font-weight: ${weight.semib};
   color: ${color.dullblue};
   text-transform: uppercase;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+
 `
 
 const LinkShop = styled(LinkNew)`
@@ -27,9 +32,10 @@ const IndexPage = () => (
     <OuterCircle>
       <MiddleCircle>
         <FrontCircle>
+         <SquMob src={squadron} alt='Squadron Squirrel' />
           <WhiteInner>
             <Logo src={logolanding} alt='FODE Logo' />
-            <Title>We all die but not all of us fly!</Title>
+            <LandingTitle>We all die but not all of us fly!</LandingTitle>
             <Divider />
             <LinkWrap>
               <LinkNew to="/newarrivals/">New Arrivals</LinkNew>
@@ -42,7 +48,6 @@ const IndexPage = () => (
     </OuterCircle>
     <Squ src={squadron} alt='Squadron Squirrel' />
   </CircleWrapper>
-
   </LandingWrapper>
 )
 

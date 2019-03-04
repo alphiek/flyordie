@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { GlobalStyle } from '../globalStyles/globalStyle'
+import { GlobalStyle } from '../GlobalCss/globalStyle'
 import Header from "./Header/header"
 
 

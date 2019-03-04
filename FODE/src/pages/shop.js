@@ -2,9 +2,10 @@ import React from "react"
 import Footer from "../components/Footer/footer"
 import ShopPreview from "../components/Shop/shopPreview"
 import Form from "../components/Form/form"
-import { TitleShop, TitleWrapper, Fode, Circle, IntroWrapper, Blurb } from "../components/Shop/shopStyles"
-import { Pattern } from '../globalStyles/containers'
-import { color } from '../globalStyles/variables'
+import RangeSearch from '../components/RangeSearch/rangeSearch'
+import { TitleShop, TitleWrapper, Fode, Circle, IntroWrapper } from "../components/Shop/shopStyles"
+import { Pattern } from '../GlobalCss/containers'
+import { color } from '../GlobalCss/variables'
 import patternLight from '../images/repeating-pattern.svg'
 import shopTitle from '../images/shoptitle.svg'
 
@@ -18,7 +19,7 @@ const Shop = () => (
       <IntroWrapper>
         <TitleShop>Exisiting to deliver everything you need to look Fresh, Stylish and Fly!</TitleShop>
       </IntroWrapper>
-      <Blurb>Some information</Blurb>
+      <RangeSearch />
       <ShopPreview />
     </TitleWrapper>
   </Pattern>

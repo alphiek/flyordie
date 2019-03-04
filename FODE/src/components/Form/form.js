@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FormSectionWrapper, FormWrapper, FormText, Input, Error, Consent, SubmitButton, Checkbox } from './formStyles'
+import { FormSectionWrapper, FormWrapper, FormText, Input, Error, Consent, SubmitButton, ConsentLink } from './formStyles'
 
 const emailRegex = RegExp(
   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -99,7 +99,7 @@ handleSubmit = (event) => {
         const {errors} = this.state;
         return(
           <FormSectionWrapper>
-            <FormText>Yes Mate! Send me all the offers!</FormText>
+            <FormText>Yes! Send me all the offers!</FormText>
             <FormWrapper
               noValidate >
               <label htmlFor="name">
@@ -126,12 +126,21 @@ handleSubmit = (event) => {
               {errors.email.length > 0 &&
               <Error>{errors.email}</Error>}
               <Consent>
-              I agree with the T&CS, Privacy Policy and that FODE can
-              contact me regarding their most excellent forthcoming promos
+              I agree with the
+                  <ConsentLink
+                    href="http://localhost:8000/static/terms-of-use-e595ca762c750a4691c0defcc8c70389.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"> T&CS,
+                  </ConsentLink>
+                  <ConsentLink
+                    href="http://localhost:8000/static/privacy-policy-51fa98b3823b6a3c01549f1a8329a7be.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"> Privacy Policy
+                 </ConsentLink> and that FODE can contact me regarding their most excellent forthcoming promos
               </Consent>
               <Error>{errors.consent}</Error>
               <label htmlFor="consent">
-                <Checkbox
+                <input
                   name="consent"
                   type="checkbox"
                   checked={this.state.consent.value}

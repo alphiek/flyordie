@@ -1,26 +1,30 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CardWrapper, RangeIcon, Divider, SalesInfo, ImgWrapper } from '../components/Product/productCardStyles'
+import { CardWrapper, RangeButton, RangeWrapper, RangeTitle, RangeIcon, Divider, SalesInfo, ImgWrapper, ItemWrapper } from '../components/Product/productCardStyles'
 import Footer from "../components/Footer/footer"
 import Form from '../components/Form/form'
-import { Pattern } from '../globalStyles/containers'
+import { Pattern } from '../GlobalCss/containers'
+import { BodyText, Subheading } from '../GlobalCss/other'
 import patternLight from '../images/repeating-pattern.svg'
-import { color } from '../globalStyles/variables'
+import { color } from '../GlobalCss/variables'
 
 export default ({ data }) => (
   <React.Fragment>
-  <Pattern bgColor={color.secondary} background={patternLight} padding justify="space-around">
+  <Pattern bgColor={color.secondary} background={patternLight} padding>
+   <ItemWrapper>
     <ImgWrapper src={data.datoCmsProduct.image.url} alt={data.datoCmsProduct.image.alt}/>
-      <CardWrapper>
+    <CardWrapper>
+       <SalesInfo>
+         <RangeWrapper>
           <RangeIcon src={data.datoCmsProduct.icon.url} alt={data.datoCmsProduct.icon.alt}></RangeIcon>
+         </RangeWrapper>
+          <RangeTitle>{data.datoCmsProduct.range}</RangeTitle>
+          <BodyText>{data.datoCmsProduct.info}</BodyText>
           <Divider/>
-          <SalesInfo>
-          <h1>{data.datoCmsProduct.range}</h1>
-          <p>{data.datoCmsProduct.info}</p>
-          <h2>{data.datoCmsProduct.itemtype}</h2>
-          <p>{data.datoCmsProduct.price}.00</p>
-          </SalesInfo>
-      <button
+          <Subheading>{data.datoCmsProduct.itemtype}</Subheading>
+          <BodyText>£{data.datoCmsProduct.price}.00</BodyText>
+          <Divider/>
+      <RangeButton
        className="snipcart-add-item"
        data-item-id={data.datoCmsProduct.id}
        data-item-custom3 name={data.datoCmsProduct.range}
@@ -33,9 +37,11 @@ export default ({ data }) => (
        data-item-custom2-name="Size"
        data-item-custom2-options="Small|Medium|Large"
        data-item-custom2-value="Medium">
-      Buy Now
-    </button>
+      Add to Cart
+    </RangeButton>
+      </SalesInfo>
     </CardWrapper>
+    </ItemWrapper>
     </Pattern>
     <Form />
     <Footer />
