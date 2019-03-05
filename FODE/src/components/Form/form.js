@@ -1,164 +1,97 @@
-import React, { Component } from 'react'
+import React from 'react';
 import { FormSectionWrapper, FormWrapper, FormText, Input, Error, Consent, SubmitButton, ConsentLink } from './formStyles'
-
-const emailRegex = RegExp(
-  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-);
-
-const validateForm = (errors) => {
-  let valid = true;
-
-  Object.values(errors).forEach(
-    // if we have an error string set valid to false
-    (val) => val.length > 0 && (valid = false)
-  );
-  return valid;
-};
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
 
 
-class Form extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {
-       consent: {
-         value: false,
-         touched: false,
-       },
-       firstName: {
-         value: '',
-         touched: false,
-       },
-       email: {
-         value: '',
-         touched: false,
-       },
-       errors: {
-         email: '',
-         name: '',
-         consent: ''
-       }
-     };
+const SignUp = ({
+    values,
+    errors,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    touched,
+}) => (
+  <FormSectionWrapper>
+    <FormText>Yes! Send me all the offers!</FormText>
+      <FormWrapper onSubmit={handleSubmit}>
+        <label htmlFor="name">
+          <Input
+           type="text"
+           onChange={handleChange}
+           placeholder='Enter your Name'
+           onBlur={handleBlur}
+           value={values.name}
+           name="name"
+            />
+          {errors.name && touched.name && <Error id="feedback">{errors.name}</Error>}
+       </label>
+       <label htmlFor="email">
+          <Input
+          type="email"
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={values.email}
+          name="email"
+          placeholder="Enter your Email"
+          />
+          {errors.email && touched.email && <Error id="feedback">{errors.email}</Error>}
+      </label>
+      <label>
+        <Consent>
+          I agree with the
+            <ConsentLink
+            href="http://localhost:8000/static/terms-of-use-e595ca762c750a4691c0defcc8c70389.pdf"
+            target="_blank"
+            rel="noopener noreferrer"> T&CS,
+            </ConsentLink>
+            <ConsentLink
+            href="http://localhost:8000/static/privacy-policy-51fa98b3823b6a3c01549f1a8329a7be.pdf"
+            target="_blank"
+            rel="noopener noreferrer"> Privacy Policy
+            </ConsentLink> and that FODE can contact me regarding their most excellent forthcoming promos
+         </Consent>
+         {errors.consent && touched.consent && <Error id="feedback">{errors.consent}</Error>}
+         <Input
+          type="checkbox"
+          name="consent"
+          checked={values.consent}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          />
+       </label>
+       <SubmitButton type="submit">Submit</SubmitButton>
+    </FormWrapper>
+  </FormSectionWrapper>
+)
 
-     this.handleInputChange = this.handleInputChange.bind(this);
-   }
+const Form = withFormik({
+ mapPropsToValues: () => ({
+   name: '',
+   email: '',
+   consent: false
+ }),
+ validationSchema: Yup.object().shape({
+   name: Yup.string()
+   .min(3, 'Must be longer than 2 characters')
+   .required('Required'),
+   email: Yup.string()
+   .email('Invalid email address')
+   .required('Required'),
+   consent: Yup.bool()
+   .oneOf([true])
+   .required("Consent must be checked"),
+ }),
 
+ handleSubmit: (values, { setSubmitting }) => {
+   setTimeout(() => {
+     alert(JSON.stringify(values, null, 2));
+     setSubmitting(false);
+     }, 1000);
+    console.log(values);
+   },
 
-   handleInputChange(event) {
-     event.preventDefault();
+   displayName: 'Basic Form',
+})(SignUp)
 
-     const { name, value } = event.target;
-     let errors = this.state.errors;
-     let consent = this.state.consent;
-     const input = event.target.checked;
-
-     this.setState({
-       consent: {
-         touched: true,
-         value: input,
-       }
-     });
-
-     switch (name) {
-     case 'firstName':
-       errors.name =
-         value.length < 3
-           ? 'Name must be 2 characters long!'
-           : '';
-       break;
-     case 'email':
-       errors.email =
-         emailRegex.test(value)
-           ? ''
-           : 'Email is not valid!';
-       break;
-     case 'consent':
-      errors.consent =
-        !consent.value
-         ? 'consent must be checked'
-         : '';
-       break;
-     default:
-       break;
-   }
-
-   this.setState({errors, [name]: value}, ()=> {
-    console.log(errors)
-})
-}
-
-handleSubmit = (event) => {
-  event.preventDefault();
-  if(validateForm(this.state.errors)) {
-    console.info('Valid Form')
-  }else{
-    console.error('Invalid Form')
-  }
-}
-
-      render() {
-        const {errors} = this.state;
-        return(
-          <FormSectionWrapper>
-            <FormText>Yes! Send me all the offers!</FormText>
-            <FormWrapper
-              noValidate >
-              <label htmlFor="name">
-                <Input
-                  name="firstName"
-                  type="text"
-                  placeholder='Whats your name'
-                  value={this.state.firstName.value}
-                  onChange={this.handleInputChange}
-                  noValidate />
-              </label>
-              {errors.name.length > 0 &&
-              <Error>{errors.name}</Error>}
-              <label htmlFor="email">
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder='Enter Your Email'
-                  value={this.state.email.value}
-                  onChange={this.handleInputChange}
-                  noValidate
-                  />
-              </label>
-              {errors.email.length > 0 &&
-              <Error>{errors.email}</Error>}
-              <Consent>
-              I agree with the
-                  <ConsentLink
-                    href="http://localhost:8000/static/terms-of-use-e595ca762c750a4691c0defcc8c70389.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"> T&CS,
-                  </ConsentLink>
-                  <ConsentLink
-                    href="http://localhost:8000/static/privacy-policy-51fa98b3823b6a3c01549f1a8329a7be.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"> Privacy Policy
-                 </ConsentLink> and that FODE can contact me regarding their most excellent forthcoming promos
-              </Consent>
-              <Error>{errors.consent}</Error>
-              <label htmlFor="consent">
-                <input
-                  name="consent"
-                  type="checkbox"
-                  checked={this.state.consent.value}
-                  onChange={this.handleInputChange}
-                  noValidate
-                  />
-              </label>
-              <SubmitButton
-                 type='submit'
-                 onClick={this.handleSubmit}>
-              submit
-              </SubmitButton>
-            </FormWrapper>
-          </FormSectionWrapper>
-
-        )
-      }
-   }
-
-
-export default Form
+export default Form;

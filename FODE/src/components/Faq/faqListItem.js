@@ -20,12 +20,13 @@ class FaqListItem extends Component {
 
      console.log(`EventID ${event.target.id}`);
      console.log(`TargetID ${targetId}`);
+
        this.setState({
            id: targetId,
            isHidden: !this.state.isHidden
-       }, () => {
-         console.log(this.state.id, this.state.isHidden);
        });
+
+      console.log(this.state.id, this.state.isHidden);
      }
 
    render () {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Title, Subheading, BodyText } from '../../GlobalCss/other'
-import { color, fontSize, spacing } from '../../GlobalCss/variables'
+import { color, fontSize } from '../../GlobalCss/variables'
 
 export const FaqText = styled(BodyText)`
   padding-top: 1em;
