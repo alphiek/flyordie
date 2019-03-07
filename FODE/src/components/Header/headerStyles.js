@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { fontSize, spacing, color, weight } from '../../GlobalCss/variables'
+import styled from "styled-components";
+import { fontSize, spacing, color, weight } from "../../GlobalCss/variables";
 
 export const HeaderWrapper = styled.header`
   width: 100%;
@@ -13,24 +13,24 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
-`
+`;
 
 export const Flex = styled.div`
   display: flex;
-`
+`;
 export const CartWrapper = styled(Flex)`
   position: relative;
   align-items: center;
   justify-content: center;
   width: 3em;
   height: 3em;
-`
+`;
 export const SnipcartContainer = styled(Flex)`
   justify-content: space-between;
   align-items: center;
   width: 13.5em;
   margin-right: 0.5em;
-`
+`;
 
 export const BurgerMenu = styled(Flex)`
   flex-direction: column;
@@ -39,11 +39,11 @@ export const BurgerMenu = styled(Flex)`
   height: 1.25em;
   margin-left: 1em;
   cursor: pointer;
-`
+`;
 
 export const Cart = styled.img`
   width: 2.16em;
-`
+`;
 
 export const Items = styled.span`
   position: absolute;
@@ -56,7 +56,7 @@ export const Items = styled.span`
   color: ${color.primary};
   text-align: center;
   line-height: 140%;
-`
+`;
 
 export const AnchorNav = styled.a`
   font-size: ${fontSize.small};
@@ -64,8 +64,7 @@ export const AnchorNav = styled.a`
   color: ${color.primary};
   text-transform: uppercase;
   font-weight: ${weight.bold};
-  `
-
+`;
 
 export const TopLine = styled.span`
   width: 100%;
@@ -77,15 +76,15 @@ export const TopLine = styled.span`
     transform: scaleX(0.5);
     transform-origin: left;
   }
-`
+`;
 
 export const MidLine = styled(TopLine)`
   ${BurgerMenu}: hover & {
     transform: scaleX(0.6);
   }
-`
+`;
 export const BottomLine = styled(TopLine)`
   ${BurgerMenu}: hover & {
     transform: scaleX(0.7);
   }
-`
+`;

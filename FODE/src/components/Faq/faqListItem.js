@@ -1,53 +1,71 @@
-import React, { Component } from "react"
-import { graphql, StaticQuery } from 'gatsby'
-import { FaqWrapper, FaqItem, FaqHeading, InfoButton, FaqText } from './faqStyles'
+import React, { Component } from "react";
+import { graphql, StaticQuery } from "gatsby";
+import { color } from "../../GlobalCss/variables";
+import { Arrow } from "./faqStyles";
+import arrow from "../../images/openArrow.svg";
+
+import {
+  FaqWrapper,
+  FaqItem,
+  FaqHeading,
+  InfoButton,
+  FaqText
+} from "./faqStyles";
 
 class FaqListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        id: 0,
-        isHidden: true,
+      id: -1
     };
-
-    this.toggleHidden = this.toggleHidden.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick(event) {
+    let targetId = Number(event.target.id);
+    this.setState(
+      {
+        id: targetId
+      },
+      () => {
+        console.log(this.state.id);
+      }
+    );
+  }
 
-  toggleHidden (event) {
-    console.log('clicked');
-    let targetId = event.target.id;
+  render() {
+    const inactiveStyle = {
+      color: color.primaryInactive
+    };
 
-     console.log(`EventID ${event.target.id}`);
-     console.log(`TargetID ${targetId}`);
-
-       this.setState({
-           id: targetId,
-           isHidden: !this.state.isHidden
-       });
-
-      console.log(this.state.id, this.state.isHidden);
-     }
-
-   render () {
-     console.log(this.props)
-     return (
-       <FaqWrapper>
-         {this.props.faqs.edges.map((faq, index) => {
-           return (
-             <FaqItem key={faq.node.id} >
-               <div>
-                 <InfoButton id={index} onClick={this.toggleHidden}>View Info</InfoButton>
-                 <FaqHeading>{faq.node.title}</FaqHeading>
-                 {!this.state.isHidden && (<FaqText>{faq.node.help}</FaqText>)}
-               </div>
-              </FaqItem>
-           );
-         })}
-         </FaqWrapper>
-     )
-   }
- }
+    return (
+      <FaqWrapper>
+        {this.props.faqs.edges.map((faq, index) => {
+          return (
+            <FaqItem key={faq.node.id}>
+              <div>
+                <FaqHeading
+                  style={this.state.id === index ? null : inactiveStyle}
+                >
+                  {faq.node.title}
+                </FaqHeading>
+                {this.state.id === index ? (
+                  <FaqText>{faq.node.help} </FaqText>
+                ) : (
+                  <InfoButton
+                    background={arrow}
+                    id={index}
+                    onClick={this.handleClick}
+                  />
+                )}
+              </div>
+            </FaqItem>
+          );
+        })}
+      </FaqWrapper>
+    );
+  }
+}
 
 export default () => (
   <StaticQuery
@@ -64,8 +82,6 @@ export default () => (
         }
       }
     `}
-    render={(data) => (
-      <FaqListItem faqs={data.allDatoCmsFaq} />
-    )}
-    />
-  )
+    render={data => <FaqListItem faqs={data.allDatoCmsFaq} />}
+  />
+);

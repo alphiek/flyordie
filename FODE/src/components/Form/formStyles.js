@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import { fontSize, spacing, color, weight } from '../../GlobalCss/variables'
+import styled from "styled-components";
+import { fontSize, spacing, color, weight } from "../../GlobalCss/variables";
 
 export const ConsentLink = styled.a`
   color: ${color.secondary};
   text-decoration: underline;
-`
+`;
 
 export const FormSectionWrapper = styled.div`
   display: flex;
@@ -13,11 +13,13 @@ export const FormSectionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color ${color.primary};
-  padding-top: 13em;
-  padding-bottom: 5em;
+  padding-top: 15em;
+  padding-bottom: 10em;
   margin-top: -12em;
+  -webkit-clip-path: polygon(0 15%, 100% 8%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 15%, 100% 8%, 100% 100%, 0% 100%);
 
-`
+`;
 
 export const FormWrapper = styled.form`
   position: relative;
@@ -30,12 +32,12 @@ export const FormWrapper = styled.form`
   border: 0.25em dashed ${color.lightgreen};
 
   @media (max-width: 767px) {
-  width: 75vw;
+    width: 75vw;
   }
   @media (max-width: 479px) {
-  width: 80vw;
-}
-`
+    width: 80vw;
+  }
+`;
 
 export const FormText = styled.p`
   color: ${color.secondary};
@@ -44,7 +46,7 @@ export const FormText = styled.p`
   letter-spacing: ${spacing.std};
   text-align: center;
   margin-bottom: 1em;
-`
+`;
 
 export const Input = styled.input`
   width: 40vw;
@@ -59,36 +61,41 @@ export const Input = styled.input`
   letter-spacing: ${spacing.wide};
   color: ${color.primary};
   @media (max-width: 767px) {
-  width: 65vw;
+    width: 65vw;
   }
   @media (max-width: 479px) {
-  width: 70vw;
-}
-`
+    width: 70vw;
+  }
+`;
 
 export const Error = styled.p`
+  width: auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   font-size: ${fontSize.small};
-  margin: 0.15em;
   font-weight: ${weight.light};
   color: ${color.secondary};
-`
+  text-align: center;
+  letter-spacing: ${spacing.med};
+  border: 0.1em solid ${color.lightred};
+`;
 export const Consent = styled.p`
   color: ${color.secondary};
   font-size: ${fontSize.small};
+  letter-spacing: ${spacing.reg};
   font-weight: ${weight.normal};
   line-height: 135%;
   text-align: center;
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
   @media (max-width: 767px) {
-  width: 65vw;
+    width: 65vw;
   }
   @media (max-width: 479px) {
-  width: 70vw;
-}
-`
-export const Checkbox = styled.input`
-
-`
+    width: 70vw;
+  }
+`;
+export const Checkbox = styled.input``;
 
 export const SubmitButton = styled.button`
   padding: 0;
@@ -104,4 +111,4 @@ export const SubmitButton = styled.button`
   color: ${color.secondary};
   font-weight: 300;
   font-size: ${fontSize.medsmall};
-`
+`;

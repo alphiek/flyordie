@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { color } from '../../GlobalCss/variables'
+import styled from "styled-components";
+import { color } from "../../GlobalCss/variables";
 
 export const NavContainer = styled.nav`
   height: 100vh;
@@ -12,16 +12,16 @@ export const NavContainer = styled.nav`
   background-color: ${color.primary};
   transform: scaleY(1);
   transform-origin: bottom;
-`
+`;
 
 export const LinkWrapper = styled.div`
-  height:70vh;
+  height: 70vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-`
+`;
 
 export const LinkRotate = styled.div`
   transform: rotate(-90deg);
@@ -30,7 +30,7 @@ export const LinkRotate = styled.div`
   margin-bottom: 2.5em;
   width: 4em;
   text-align: center;
-`
+`;
 
 export const Close = styled.div`
   text-align: center;
@@ -40,4 +40,4 @@ export const Close = styled.div`
   font-size: 3.5em;
   color: ${color.secondary};
   margin-bottom: 0.8em;
-`
+`;

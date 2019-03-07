@@ -1,14 +1,18 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import { LinkWrapper, LinkRotate } from './navStyles'
-import styled from 'styled-components'
-import { color } from '../../GlobalCss/variables'
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import { LinkWrapper, LinkRotate } from "./navStyles";
+import styled from "styled-components";
+import { color } from "../../GlobalCss/variables";
 
 const NavLink = styled(Link)`
   color: ${color.lightblue};
   text-transform: uppercase;
   white-space: nowrap;
-`
+`;
+
+const activeStyle = {
+  color: "white"
+};
 
 const NavItems = () => (
   <StaticQuery
@@ -25,15 +29,17 @@ const NavItems = () => (
       }
     `}
     render={data => (
-         <LinkWrapper>
-         {data.site.siteMetadata.menuLinks.map( link =>
+      <LinkWrapper>
+        {data.site.siteMetadata.menuLinks.map(link => (
           <LinkRotate key={link.name}>
-            <NavLink to={link.link}>{link.name}</NavLink>
+            <NavLink to={link.link} activeStyle={activeStyle}>
+              {link.name}
+            </NavLink>
           </LinkRotate>
-          )}
-        </LinkWrapper>
+        ))}
+      </LinkWrapper>
     )}
   />
-)
+);
 
-export default NavItems
+export default NavItems;

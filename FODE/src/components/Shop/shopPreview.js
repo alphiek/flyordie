@@ -1,9 +1,15 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from "gatsby"
-import { ShopItem, MasonryWrapper, InfoWrapper, ProductDesc, Divider } from './shopPreviewStyles'
-import Masonry from 'react-masonry-component'
-import styled from 'styled-components'
-import { color, fontSize } from '../../GlobalCss/variables'
+import React from "react";
+import { StaticQuery, graphql, Link } from "gatsby";
+import {
+  ShopItem,
+  MasonryWrapper,
+  InfoWrapper,
+  ProductDesc,
+  Divider
+} from "./shopPreviewStyles";
+import Masonry from "react-masonry-component";
+import styled from "styled-components";
+import { color, fontSize } from "../../GlobalCss/variables";
 
 const ShopLink = styled(Link)`
   font-size: ${fontSize.xsmall};
@@ -12,7 +18,7 @@ const ShopLink = styled(Link)`
   padding: 0;
   color: ${color.primary};
   line-height: 160%;
-`
+`;
 
 const ShopPreview = () => (
   <StaticQuery
@@ -36,25 +42,25 @@ const ShopPreview = () => (
     `}
     render={data => (
       <MasonryWrapper>
-      <Masonry>
-        {data.allDatoCmsProduct.edges.map(({ node: product }) => (
-          <ShopItem key={product.id} >
-            <div>
-              <InfoWrapper>
-              <ProductDesc>{product.shopdescription}</ProductDesc>
-              <Divider />
-              <ShopLink to={`${product.slug}`} >SHOP</ShopLink>
-              </InfoWrapper>
-              <Link to={`${product.slug}`} >
-                <img src={product.image.url} alt={product.image.alt} />
-              </Link>
-                </div>
-              </ShopItem>
+        <Masonry>
+          {data.allDatoCmsProduct.edges.map(({ node: product }) => (
+            <ShopItem key={product.id}>
+              <div>
+                <InfoWrapper>
+                  <ProductDesc>{product.shopdescription}</ProductDesc>
+                  <Divider />
+                  <ShopLink to={`${product.slug}`}>SHOP</ShopLink>
+                </InfoWrapper>
+                <Link to={`${product.slug}`}>
+                  <img src={product.image.url} alt={product.image.alt} />
+                </Link>
+              </div>
+            </ShopItem>
           ))}
-          </Masonry>
-        </MasonryWrapper>
+        </Masonry>
+      </MasonryWrapper>
     )}
   />
-)
+);
 
-export default ShopPreview
+export default ShopPreview;

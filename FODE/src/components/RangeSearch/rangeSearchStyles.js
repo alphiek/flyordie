@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { BodyText, Subheading } from '../../GlobalCss/other'
-import { color } from '../../GlobalCss/variables'
+import styled from "styled-components";
+import { BodyText, Subheading } from "../../GlobalCss/other";
+import { color } from "../../GlobalCss/variables";
 
 export const RangeFlex = styled.div`
   display: flex;
@@ -10,25 +10,23 @@ export const RangeFlex = styled.div`
   margin-right: 5em;
   margin-bottom: 3em;
   margin-top: -2em;
-`
+`;
 
 export const InfoContainer = styled.div`
   width: 15em;
   padding: 2em;
   text-align: left;
   background-color: white;
-`
+`;
 
-export const Blurb = styled(BodyText)`
-
-`
+export const Blurb = styled(BodyText)``;
 export const OptionsText = styled(Subheading)`
   background-color: ${color.primary};
   color: ${color.secondary};
   margin-bottom: 2em;
   width: 20em;
   margin-left: 7em;
-`
+`;
 
 export const OptionsFlex = styled.div`
   width: 65em;
@@ -37,7 +35,7 @@ export const OptionsFlex = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 2em;
-`
+`;
 
 export const RangeSelector = styled.div`
   display: flex;
@@ -47,7 +45,7 @@ export const RangeSelector = styled.div`
   height: 7em;
   border-radius: 50%;
   background-color: white;
-`
+`;
 export const RangeIcon = styled.img`
   width: 6em;
-`
+`;

@@ -1,9 +1,9 @@
-const path = require('path')
+const path = require("path");
 
 exports.createPages = ({ graphql, actions }) => {
-  const {createPage} = actions
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    const productTemplate = path.resolve('src/templates/productTemplate.js')
+    const productTemplate = path.resolve("src/templates/productTemplate.js");
     resolve(
       graphql(`
         {
@@ -16,21 +16,21 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-      `).then((result) => {
+      `).then(result => {
         if (result.errors) {
-          reject(result.errors)
+          reject(result.errors);
         }
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
-          createPage ({
+          createPage({
             path: node.slug,
             component: productTemplate,
             context: {
               slug: node.slug
             }
-          })
-        })
-        return
+          });
+        });
+        return;
       })
-    )
-  })
-}
+    );
+  });
+};
