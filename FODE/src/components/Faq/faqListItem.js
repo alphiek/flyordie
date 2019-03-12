@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { graphql, StaticQuery } from "gatsby";
 import { color } from "../../GlobalCss/variables";
-import { Arrow } from "./faqStyles";
 import arrow from "../../images/openArrow.svg";
 
 import {

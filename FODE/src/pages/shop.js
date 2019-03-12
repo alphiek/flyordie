@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "../components/Footer/footer";
 import ShopPreview from "../components/Shop/shopPreview";
 import Form from "../components/Form/form";
-import RangeSearch from "../components/RangeSearch/rangeSearch";
 import {
   TitleShop,
   TitleWrapper,
@@ -27,7 +26,6 @@ const Shop = () => (
             Fly!
           </TitleShop>
         </IntroWrapper>
-        <RangeSearch />
         <ShopPreview />
       </TitleWrapper>
     </Pattern>

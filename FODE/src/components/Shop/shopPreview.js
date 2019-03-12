@@ -1,11 +1,20 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
+
 import {
   ShopItem,
+  InfoContainer,
+  Blurb,
+  OptionsText,
   MasonryWrapper,
+  OptionsParent,
   InfoWrapper,
   ProductDesc,
-  Divider
+  Divider,
+  RangeFlex,
+  OptionsFlex,
+  RangeSelector,
+  RangeIcon
 } from "./shopPreviewStyles";
 import Masonry from "react-masonry-component";
 import styled from "styled-components";
@@ -35,12 +44,38 @@ const ShopPreview = () => (
                 url
                 alt
               }
+              icon {
+                alt
+                url
+              }
+              range
             }
           }
         }
       }
     `}
     render={data => (
+      <div>
+      <RangeFlex>
+      <InfoContainer>
+        <Blurb>
+          All our products are made and designed in the UK, Created from Eco
+          Friendly Fabrics and Materials. We support Mind UK and are
+          committed that with every purchase a portion of the proceeds are
+          donated to this amazing charity to help others.
+        </Blurb>
+      </InfoContainer>
+      <OptionsParent>        
+        <OptionsFlex>
+          {data.allDatoCmsProduct.edges.map(({ node: product }) => (
+            <RangeSelector key={product.id}>
+              <RangeIcon src={product.icon.url} alt={product.icon.alt} />
+            </RangeSelector>
+          ))}
+        </OptionsFlex>
+        <OptionsText>Select range to see options available</OptionsText>
+        </OptionsParent>
+      </RangeFlex>
       <MasonryWrapper>
         <Masonry>
           {data.allDatoCmsProduct.edges.map(({ node: product }) => (
@@ -59,6 +94,7 @@ const ShopPreview = () => (
           ))}
         </Masonry>
       </MasonryWrapper>
+      </div>
     )}
   />
 );

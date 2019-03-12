@@ -6,20 +6,30 @@ export const Anchor = styled.a`
   letter-spacing: ${spacing.wide};
   color: ${props => props.color};
   text-transform: ${props => (props.transform ? "uppercase" : "none")};
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+  }
 `;
 export const Copyright = styled(Anchor)`
   font-weight: ${weight.light};
   font-size: ${fontSize.xsmall};
   padding-bottom: 5em;
+  @media (max-width:991px) {
+    font-size: ${fontSize.small};
+  }
 `;
 
 export const Logo = styled.img`
   padding-top: 4em;
-  width: 5.4em;
+  width: 7em;
 `;
 export const Icon = styled.img`
   width: 1.4em;
   height: 1.4em;
+  @media (max-width:991px) {
+  width: 2em;
+  height: 2em;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -36,11 +46,23 @@ export const LinksContainer = styled(Wrapper)`
   @media (max-width: 767px) {
     flex-direction: column;
     width: 10em;
+    padding-bottom: 1em;
+  }
+  @media (max-width: 479px) {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
   }
 `;
 export const SocialWrapper = styled(Wrapper)`
   width: 6.5em;
   align-items: center;
+  @media (max-width:991px) {
+    width: 10em;
+  }
+  @media (max-width: 479px) {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
 `;
 
 export const LinkItem = styled.span`
@@ -59,6 +81,10 @@ export const Divider = styled.span`
   width: 1em;
   background-color: ${color.primary};
   height: 0.25em;
+  @media (max-width: 479px) {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 `;
 
 export const Address = styled.address`
@@ -67,4 +93,7 @@ export const Address = styled.address`
   color: ${color.white};
   letter-spacing: ${spacing.wide};
   line-height: 155%;
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+  }
 `;

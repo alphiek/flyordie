@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  AnchorNav,
   Cart,
   Items,
   SnipcartContainer,
@@ -42,9 +41,6 @@ class Header extends Component {
             <BottomLine />
           </BurgerMenu>
           <SnipcartContainer>
-            <AnchorNav href="#" className="snipcart-edit-profile">
-              New Account
-            </AnchorNav>
             <LogIn />
             <CartWrapper>
               <a href="www.#.com" className="snipcart-checkout">

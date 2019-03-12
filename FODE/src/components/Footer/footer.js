@@ -13,6 +13,8 @@ const ClipPattern = styled(Pattern)`
   clip-path: polygon(0 6%, 100% 13%, 100% 100%, 0% 100%);
   margin-top: -5em;
   padding-top: 3em;
+  @media (max-width: 479px) {
+    margin-top: -8em;
 `;
 
 const Footer = () => (

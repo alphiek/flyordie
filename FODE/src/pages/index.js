@@ -22,19 +22,25 @@ import { color, fontSize, weight } from "../GlobalCss/variables";
 import logolanding from "../images/logoLanding.svg";
 import styled from "styled-components";
 
-const LinkNew = styled(Link)`
+const LinkShop = styled(Link)`
   font-size: ${fontSize.largeLink};
   font-weight: ${weight.semib};
-  color: ${color.dullblue};
+  color: ${color.dullred};
   text-transform: uppercase;
 
   :hover {
     text-decoration: underline;
   }
+  @media (max-width: 991px) {
+    color: ${color.lightblue};
+  }
 `;
 
-const LinkShop = styled(LinkNew)`
-  color: ${color.dullred};
+const LinkNew = styled(LinkShop)`
+  color: ${color.dullblue};
+  @media (max-width: 991px) {
+    display: none;
+  }
 `;
 
 const IndexPage = () => (

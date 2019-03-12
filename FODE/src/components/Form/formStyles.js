@@ -18,7 +18,6 @@ export const FormSectionWrapper = styled.div`
   margin-top: -12em;
   -webkit-clip-path: polygon(0 15%, 100% 8%, 100% 100%, 0% 100%);
   clip-path: polygon(0 15%, 100% 8%, 100% 100%, 0% 100%);
-
 `;
 
 export const FormWrapper = styled.form`
@@ -30,7 +29,9 @@ export const FormWrapper = styled.form`
   align-items: center;
   width: 50vw;
   border: 0.25em dashed ${color.lightgreen};
-
+  @media (max-width: 991px) {
+    width: 65vw;
+  }
   @media (max-width: 767px) {
     width: 75vw;
   }
@@ -46,9 +47,12 @@ export const FormText = styled.p`
   letter-spacing: ${spacing.std};
   text-align: center;
   margin-bottom: 1em;
+  @media (max-width:991px) {
+    font-size: ${fontSize.largeLink};
+  }
 `;
 
-export const Input = styled.input`
+export const InputBox = styled.input`
   width: 40vw;
   line-height: 200%;
   margin-top: 0.5em;
@@ -60,6 +64,10 @@ export const Input = styled.input`
   background: ${color.secondary};
   letter-spacing: ${spacing.wide};
   color: ${color.primary};
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+    width:58vw;
+  }
   @media (max-width: 767px) {
     width: 65vw;
   }
@@ -68,7 +76,14 @@ export const Input = styled.input`
   }
 `;
 
-export const Error = styled.p`
+export const ConsentBox = styled.input`
+width: 4%;
+margin-left: 48%;
+margin-bottom: 0.8em;
+margin-top:0.6em;
+`
+
+export const ErrorMsg = styled.p`
   width: auto;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -78,6 +93,9 @@ export const Error = styled.p`
   text-align: center;
   letter-spacing: ${spacing.med};
   border: 0.1em solid ${color.lightred};
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+  }
 `;
 export const Consent = styled.p`
   color: ${color.secondary};
@@ -88,6 +106,10 @@ export const Consent = styled.p`
   text-align: center;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+  }
   @media (max-width: 767px) {
     width: 65vw;
   }
@@ -111,4 +133,7 @@ export const SubmitButton = styled.button`
   color: ${color.secondary};
   font-weight: 300;
   font-size: ${fontSize.medsmall};
+  @media (max-width:991px) {
+    font-size: ${fontSize.medium};
+  }
 `;

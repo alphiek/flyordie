@@ -8,6 +8,9 @@ const LinkUpper = styled(Link)`
   font-size: ${fontSize.small};
   letter-spacing: ${spacing.wide};
   color: ${color.white};
+  @media (max-width:991px) {
+    font-size: ${fontSize.body};
+  }
 `;
 
 const LinkWrapper = () => (

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Title, Subheading, BodyText } from "../../GlobalCss/other";
 import { color, fontSize } from "../../GlobalCss/variables";
-import arrow from "../../images/openArrow.svg";
 
 export const FaqText = styled(BodyText)`
   padding-top: 1em;

@@ -12,6 +12,16 @@ export const LandingTitle = styled(Title)`
   @media (max-width: 479px) {
    width: 8em;
    margin-top: -0.8em;
+ }
+ @media screen
+     and (max-width: 480px)
+     and (max-height:800px)
+     and (orientation:landscape) {
+       display: none;
+     }
+     @media (max-height: 500px) {
+       display: none;
+     }
 `;
 
 export const LandingWrapper = styled.main`
@@ -45,8 +55,6 @@ export const OuterCircle = styled(Circle)`
   background-color: ${color.primary};
   width: calc(400px + 43vw);
   height: calc(400px + 43vw);
-  min-height: 600px;
-  min-width: 600px;
   z-index: 3;
 
   @media (max-width: 1200px) {
@@ -55,22 +63,30 @@ export const OuterCircle = styled(Circle)`
   @media (max-width: 991px) {
     margin-left: 0em;
   }
+  @media (max-height:550px) {
+    width:110vh;
+    height:110vh;
+  }
 `;
 export const MiddleCircle = styled(Circle)`
   background-color: ${color.lightred};
   width: calc(330px + 39vw);
   height: calc(330px + 39vw);
-  min-height: 480px;
-  min-width: 480px;
   z-index: 4;
+  @media (max-height:550px) {
+    width:95vh;
+    height:95vh;
+  }
 `;
 export const FrontCircle = styled(Circle)`
   background-color: ${color.lightblue};
   width: calc(260px + 35vw);
   height: calc(260px + 35vw);
-  min-height: 360px;
-  min-width: 360px;
   z-index: 6;
+  @media (max-height:550px) {
+    width:80vh;
+    height:80vh;
+  }
 `;
 export const WhiteInner = styled(Circle)`
   flex-direction: column;
@@ -78,9 +94,11 @@ export const WhiteInner = styled(Circle)`
   background-color: ${color.white};
   width: calc(190px + 31vw);
   height: calc(190px + 31vw);
-  min-height: 240px;
-  min-width: 240px;
   z-index: 7;
+  @media (max-height:550px) {
+    width:65vh;
+    height:65vh;
+  }
 `;
 export const Logo = styled.img`
   width: 20em;
@@ -95,11 +113,20 @@ export const Logo = styled.img`
     width: 15em;
     margin-top: 3em;
   }
+@media (max-height: 500px) {
+  width: 10em;
+}
 `;
 export const LinkWrap = styled(Flex)`
   width: 15em;
   @media (max-width: 991px) {
-    display: none;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    height: 5em;
+    width: 100%;
+    background-color: ${color.primary};
+    z-index: 1;
   }
 `;
 export const Divider = styled.span`
@@ -165,6 +192,10 @@ export const SquMob = styled.img`
   }
   @media (max-width: 479px) {
     bottom: 53%;
+  }
+  @media (max-height: 550px) {
+    width:35vh;
+    height: auto;
   }
 `;
 

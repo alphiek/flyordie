@@ -28,14 +28,14 @@ export const CartWrapper = styled(Flex)`
 export const SnipcartContainer = styled(Flex)`
   justify-content: space-between;
   align-items: center;
-  width: 13.5em;
+  width: 7.5em;
   margin-right: 0.5em;
 `;
 
 export const BurgerMenu = styled(Flex)`
   flex-direction: column;
   justify-content: space-between;
-  width: 2em;
+  width: 1.7em;
   height: 1.25em;
   margin-left: 1em;
   cursor: pointer;
@@ -59,11 +59,15 @@ export const Items = styled.span`
 `;
 
 export const AnchorNav = styled.a`
-  font-size: ${fontSize.small};
+  font-size: ${fontSize.body};
   letter-spacing: ${spacing.wide};
   color: ${color.primary};
   text-transform: uppercase;
   font-weight: ${weight.bold};
+  @media (max-width: 767px) {
+    font-size: ${fontSize.body};
+  }
+
 `;
 
 export const TopLine = styled.span`

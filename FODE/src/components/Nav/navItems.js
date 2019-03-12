@@ -2,12 +2,15 @@ import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
 import { LinkWrapper, LinkRotate } from "./navStyles";
 import styled from "styled-components";
-import { color } from "../../GlobalCss/variables";
+import { color, fontSize } from "../../GlobalCss/variables";
 
 const NavLink = styled(Link)`
   color: ${color.lightblue};
   text-transform: uppercase;
   white-space: nowrap;
+  @media (max-width: 991px) {
+    font-size: ${fontSize.largeLink};
+  }
 `;
 
 const activeStyle = {

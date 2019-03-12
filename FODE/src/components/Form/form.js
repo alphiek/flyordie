@@ -3,11 +3,12 @@ import {
   FormSectionWrapper,
   FormWrapper,
   FormText,
-  Input,
-  Error,
+  InputBox,
+  ErrorMsg,
   Consent,
   SubmitButton,
-  ConsentLink
+  ConsentLink,
+  ConsentBox
 } from "./formStyles";
 import { withFormik } from "formik";
 import * as Yup from "yup";
@@ -24,7 +25,7 @@ const SignUp = ({
     <FormText>Yes! Send me all the offers!</FormText>
     <FormWrapper onSubmit={handleSubmit}>
       <label htmlFor="name">
-        <Input
+        <InputBox
           type="text"
           onChange={handleChange}
           placeholder="Enter your Name"
@@ -33,11 +34,11 @@ const SignUp = ({
           name="name"
         />
         {errors.name && touched.name && (
-          <Error id="feedback">{errors.name}</Error>
+          <ErrorMsg id="feedback">{errors.name}</ErrorMsg>
         )}
       </label>
       <label htmlFor="email">
-        <Input
+        <InputBox
           type="email"
           onChange={handleChange}
           onBlur={handleBlur}
@@ -47,7 +48,7 @@ const SignUp = ({
           noValidate
         />
         {errors.email && touched.email && (
-          <Error id="feedback">{errors.email}</Error>
+          <ErrorMsg id="feedback">{errors.email}</ErrorMsg>
         )}
       </label>
       <label htmlFor="consent">
@@ -73,9 +74,9 @@ const SignUp = ({
           forthcoming promos
         </Consent>
         {errors.consent && touched.consent && (
-          <Error id="feedback">{errors.consent}</Error>
+          <ErrorMsg id="feedback">{errors.consent}</ErrorMsg>
         )}
-        <Input
+        <ConsentBox
           type="checkbox"
           name="consent"
           checked={values.consent}
@@ -83,7 +84,7 @@ const SignUp = ({
           onBlur={handleBlur}
         />
       </label>
-      <SubmitButton type="Submit">Submit</SubmitButton>
+      <SubmitButton type="Submit">submit</SubmitButton>
     </FormWrapper>
   </FormSectionWrapper>
 );
