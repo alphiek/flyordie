@@ -1,35 +1,64 @@
-import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import React, { Component } from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Gallery from './Masonry'
+import Filter from './Filter'
 
 import {
-  ShopItem,
   InfoContainer,
   Blurb,
-  OptionsText,
-  MasonryWrapper,
-  OptionsParent,
-  InfoWrapper,
-  ProductDesc,
-  Divider,
   RangeFlex,
-  OptionsFlex,
-  RangeSelector,
-  RangeIcon
-} from "./shopPreviewStyles";
-import Masonry from "react-masonry-component";
-import styled from "styled-components";
-import { color, fontSize } from "../../GlobalCss/variables";
+} from "./shopStyles";
 
-const ShopLink = styled(Link)`
-  font-size: ${fontSize.xsmall};
-  text-transform: uppercase;
-  margin-top: 0;
-  padding: 0;
-  color: ${color.primary};
-  line-height: 160%;
-`;
 
-const ShopPreview = () => (
+class ShopPreview extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      shopData: [],
+      selectOptions: []
+    }
+  }
+
+componentDidMount() {
+  let items = this.props.data.edges
+
+  items.forEach(item => {
+    this.setState(previous => ({
+      shopData: [...previous.shopData, item]
+    }),
+    () => {
+      const uniqueItems = [...this.state.shopData.reduce((set, item) => set.add(item.node.itemtype), new Set())]
+      uniqueItems.forEach(item => {
+        this.setState({
+          selectOptions: item
+        })
+      })
+    })
+  })
+}
+
+render () {
+  return (
+    <div>
+      <RangeFlex>
+        <InfoContainer>
+          <Blurb>
+            All our products are made and designed in the UK, Created from Eco
+            Friendly Fabrics and Materials. We support Mind UK and are
+            committed that with every purchase a portion of the proceeds are
+            donated to this amazing charity to help others.
+            </Blurb>
+          <Filter />
+        </InfoContainer>
+      </RangeFlex>
+      <Gallery galleryItems={this.state.shopData} />
+    </div>
+  )
+}
+}
+
+
+export default () => (
   <StaticQuery
     query={graphql`
       query ShopQuery {
@@ -37,66 +66,20 @@ const ShopPreview = () => (
           edges {
             node {
               id
-              itemtype
-              slug
               shopdescription
+              range
+              itemtype
               image {
                 url
                 alt
               }
-              icon {
-                alt
-                url
-              }
-              range
+              shopdescription
+              slug
             }
           }
         }
       }
     `}
-    render={data => (
-      <div>
-      <RangeFlex>
-      <InfoContainer>
-        <Blurb>
-          All our products are made and designed in the UK, Created from Eco
-          Friendly Fabrics and Materials. We support Mind UK and are
-          committed that with every purchase a portion of the proceeds are
-          donated to this amazing charity to help others.
-        </Blurb>
-      </InfoContainer>
-      <OptionsParent>        
-        <OptionsFlex>
-          {data.allDatoCmsProduct.edges.map(({ node: product }) => (
-            <RangeSelector key={product.id}>
-              <RangeIcon src={product.icon.url} alt={product.icon.alt} />
-            </RangeSelector>
-          ))}
-        </OptionsFlex>
-        <OptionsText>Select range to see options available</OptionsText>
-        </OptionsParent>
-      </RangeFlex>
-      <MasonryWrapper>
-        <Masonry>
-          {data.allDatoCmsProduct.edges.map(({ node: product }) => (
-            <ShopItem key={product.id}>
-              <div>
-                <InfoWrapper>
-                  <ProductDesc>{product.shopdescription}</ProductDesc>
-                  <Divider />
-                  <ShopLink to={`${product.slug}`}>SHOP</ShopLink>
-                </InfoWrapper>
-                <Link to={`${product.slug}`}>
-                  <img src={product.image.url} alt={product.image.alt} />
-                </Link>
-              </div>
-            </ShopItem>
-          ))}
-        </Masonry>
-      </MasonryWrapper>
-      </div>
-    )}
+    render={data => <ShopPreview data={data.allDatoCmsProduct} />}
   />
-);
-
-export default ShopPreview;
+)

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FaqListItem from "./faqListItem";
+import FaqListItem from "./FaqListItem";
 import { Pattern } from "../../GlobalCss/containers";
 import { FaqTitle, FaqHeadText } from "./faqStyles";
 import patternLight from "../../images/repeating-pattern.svg";

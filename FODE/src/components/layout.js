@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { GlobalStyle } from "../GlobalCss/globalStyle";
-import Header from "./Header/header";
+import Header from "./Header/Header";
 
 const Layout = ({ children }) => (
   <div>

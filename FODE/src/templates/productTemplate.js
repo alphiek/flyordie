@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import {
+  BodyText,
+  Subheading,
   CardWrapper,
   RangeButton,
   RangeWrapper,
@@ -8,20 +10,28 @@ import {
   RangeIcon,
   Divider,
   SalesInfo,
+  ProductInfo,
   ImgWrapper,
   ItemWrapper
 } from "../components/Product/productCardStyles";
-import Footer from "../components/Footer/footer";
-import Form from "../components/Form/form";
+import Footer from "../components/Footer/Footer";
+import Form from "../components/Form/Form";
 import { Pattern } from "../GlobalCss/containers";
-import { BodyText, Subheading } from "../GlobalCss/other";
 import patternLight from "../images/repeating-pattern.svg";
 import { color } from "../GlobalCss/variables";
 
 export default ({ data }) => (
   <React.Fragment>
-    <Pattern bgColor={color.secondary} background={patternLight} padding>
+    <Pattern bgColor={color.secondary} background={patternLight} padding justify="center" >
       <ItemWrapper>
+        <ImgWrapper
+          src={data.datoCmsProduct.image.url}
+          alt={data.datoCmsProduct.image.alt}
+        />
+        <ImgWrapper
+          src={data.datoCmsProduct.image.url}
+          alt={data.datoCmsProduct.image.alt}
+        />
         <ImgWrapper
           src={data.datoCmsProduct.image.url}
           alt={data.datoCmsProduct.image.alt}
@@ -34,11 +44,12 @@ export default ({ data }) => (
                 alt={data.datoCmsProduct.icon.alt}
               />
             </RangeWrapper>
+            <ProductInfo>
             <RangeTitle>{data.datoCmsProduct.range}</RangeTitle>
             <BodyText>{data.datoCmsProduct.info}</BodyText>
             <Divider />
             <Subheading>{data.datoCmsProduct.itemtype}</Subheading>
-            <BodyText>£{data.datoCmsProduct.price}.00</BodyText>
+            <BodyText>£{data.datoCmsProduct.price}</BodyText>
             <Divider />
             <RangeButton
               className="snipcart-add-item"
@@ -59,6 +70,7 @@ export default ({ data }) => (
             >
               Add to Cart
             </RangeButton>
+            </ProductInfo>
           </SalesInfo>
         </CardWrapper>
       </ItemWrapper>

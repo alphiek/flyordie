@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/Footer/footer";
+import Footer from "../components/Footer/Footer";
 import ShopPreview from "../components/Shop/shopPreview";
-import Form from "../components/Form/form";
+import Form from "../components/Form/Form";
 import {
   TitleShop,
   TitleWrapper,

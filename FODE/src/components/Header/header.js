@@ -11,7 +11,7 @@ import {
   BottomLine
 } from "./headerStyles";
 import cart from "../../images/cartnew.svg";
-import Nav from "../Nav/nav";
+import Nav from "../Nav/Nav";
 import LogIn from "./LogIn";
 
 class Header extends Component {

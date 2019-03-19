@@ -11,11 +11,5 @@ export const Pattern = styled(SectionWrapper)`
   background-image: ${props => `url(${props.background})`};
   background-repeat: repeat;
   background-size: 90px 90px;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  justify-content: ${props => (props.justify)};
 `;

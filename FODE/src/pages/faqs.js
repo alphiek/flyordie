@@ -1,7 +1,7 @@
 import React from "react";
-import FaqSection from "../components/Faq/faqSection";
-import Footer from "../components/Footer/footer";
-import Form from "../components/Form/form";
+import FaqSection from "../components/Faq/FaqSection";
+import Footer from "../components/Footer/Footer";
+import Form from "../components/Form/Form";
 
 const FaqPage = () => (
   <React.Fragment>

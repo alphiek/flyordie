@@ -3,8 +3,8 @@ import { Pattern } from "../../GlobalCss/containers";
 import { color } from "../../GlobalCss/variables";
 import logoWhite from "../../images/logo-white.svg";
 import patternDark from "../../images/repeating-white.svg";
-import AddressWrapper from "./addressWrapper";
-import LinkWrapper from "./linkWrapper";
+import AddressWrapper from "./AddressWrapper";
+import LinkWrapper from "./LinkWrapper";
 import { Logo } from "./footerStyles";
 import styled from "styled-components";
 

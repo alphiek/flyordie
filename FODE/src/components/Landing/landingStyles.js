@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { color } from "../../GlobalCss/variables";
-import { Title } from "../../GlobalCss/other";
+import { color, fontSize, weight, spacing } from "../../GlobalCss/variables";
 
-export const LandingTitle = styled(Title)`
+export const LandingTitle = styled.h1`
+  font-size: ${fontSize.large};
+  color: ${color.primary};
+  text-transform: uppercase;
+  font-weight: ${weight.semib};
+  letter-spacing: ${spacing.slim};
    @media (max-width: 991px) {
    width: 9em;
    text-align: center;

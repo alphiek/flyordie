@@ -73,14 +73,16 @@ export const InputBox = styled.input`
   }
   @media (max-width: 479px) {
     width: 70vw;
+    line-height: 300%;
+    margin-bottom: 1.5em;
   }
 `;
 
 export const ConsentBox = styled.input`
-width: 4%;
-margin-left: 48%;
-margin-bottom: 0.8em;
-margin-top:0.6em;
+  width: 4%;
+  margin-left: 48%;
+  margin-bottom: 0.8em;
+  margin-top:0.6em;
 `
 
 export const ErrorMsg = styled.p`
@@ -108,7 +110,8 @@ export const Consent = styled.p`
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
   @media (max-width:991px) {
-    font-size: ${fontSize.body};
+    font-size: ${fontSize.medsmall};
+    line-height:150%;
   }
   @media (max-width: 767px) {
     width: 65vw;
@@ -117,7 +120,6 @@ export const Consent = styled.p`
     width: 70vw;
   }
 `;
-export const Checkbox = styled.input``;
 
 export const SubmitButton = styled.button`
   padding: 0;
@@ -135,5 +137,6 @@ export const SubmitButton = styled.button`
   font-size: ${fontSize.medsmall};
   @media (max-width:991px) {
     font-size: ${fontSize.medium};
+    padding-bottom: 0.3em;
   }
 `;

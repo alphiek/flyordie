@@ -16,6 +16,7 @@ export const fontSize = {
   small: "0.55em",
   body: "0.7em",
   medsmall: "0.8em",
+  base: "1em",
   medium: "1.2em",
   largeLink: "1.4em",
   large: "1.4em"

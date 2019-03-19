@@ -1,10 +1,17 @@
 import styled from "styled-components";
-import { Title, Subheading, BodyText } from "../../GlobalCss/other";
-import { color, fontSize } from "../../GlobalCss/variables";
+import { color, fontSize, spacing, weight } from "../../GlobalCss/variables";
 
+export const BodyText = styled.p`
+  font-size: ${fontSize.small};
+  font-size: ${fontSize.body};
+  letter-spacing: ${spacing.med};
+  line-height: 140%;
+  @media (max-width: 991px) {
+    font-size: ${fontSize.medsmall};
+  }
+`
 export const FaqText = styled(BodyText)`
   padding-top: 1em;
-  font-size: ${fontSize.small};
 `;
 
 export const FaqHeadText = styled(BodyText)`
@@ -17,15 +24,24 @@ export const FaqHeadText = styled(BodyText)`
   }
 `;
 
-export const FaqTitle = styled(Title)`
+export const FaqTitle = styled.h1`
   text-transform: none;
   margin-bottom: 1em;
+  font-size: ${fontSize.large};
+  color: ${color.primary};
+  text-transform: uppercase;
+  font-weight: ${weight.semib};
+  letter-spacing: ${spacing.slim};
 `;
 
-export const FaqHeading = styled(Subheading)`
+export const FaqHeading = styled.h2`
   border-bottom: 0.2em solid ${props => props.color};
   padding-bottom: 0.5em;
   font-size: ${fontSize.body};
+  color: ${color.primary};
+  text-transform: uppercase;
+  font-weight: ${weight.semib};
+  letter-spacing: ${spacing.slim};
 `;
 
 export const FaqWrapper = styled.div`

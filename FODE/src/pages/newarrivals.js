@@ -3,7 +3,7 @@ import React from "react";
 import { Pattern } from "../GlobalCss/containers";
 import patternLight from "../images/repeating-pattern.svg";
 import { color } from "../GlobalCss/variables";
-import Footer from "../components/Footer/footer";
+import Footer from "../components/Footer/Footer";
 
 const NewArrivals = () => (
   <React.Fragment>
