@@ -7,7 +7,7 @@ import {
     ProductDesc,
     Divider,
     ShopperLink
-} from './shopPreviewStyles'
+} from './shopStyles'
 
 const Gallery = (props) => {
    const childElements = props.galleryItems.map((item) => {

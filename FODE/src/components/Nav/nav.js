@@ -18,20 +18,17 @@ const activeStyle = {
   color: "white"
 };
 
-class Nav extends Component {
-  console.log(this.props)
-  render() {
+const Nav = (props) => {
     return (
-      <NavContainer onMouseLeave={this.props.navToggle} >
-        <Close onClick={this.props.navToggle} >&times;</Close>
-        <LinkWrapper>
-          {props.menuLinks.map(link => (
+      <NavContainer onMouseLeave={props.navToggle} >
+        <Close onClick={props.navToggle} >&times;</Close>
+        <LinkWrapper onClick={props.navToggle}>
+          {props.links.map(link => (
             <LinkRotate key={link.name}>
               <NavLink
               to={link.link}
-              activeStyle={activeStyle}
-              onClick={this.props.navToggle}>
-                {link.name}
+              activeStyle={activeStyle}>
+              {link.name}
               </NavLink>
             </LinkRotate>
           ))}
@@ -39,23 +36,5 @@ class Nav extends Component {
       </NavContainer>
     )
   }
-}
 
-
-export default () => (
-  <StaticQuery
-  query={graphql`
-    query NavTestQuery {
-      site {
-        siteMetadata {
-          menuLinks {
-            name
-            link
-          }
-        }
-      }
-    }
-  `}
-    render={data => <Nav links={data.site.siteMetadata} />}
-  />
-);
+export default Nav

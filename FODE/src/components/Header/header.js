@@ -13,28 +13,41 @@ import {
 import cart from "../../images/cartnew.svg";
 import Nav from "../Nav/Nav";
 import LogIn from "./LogIn";
+import { StaticQuery, graphql } from "gatsby";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHidden: true
+      isHidden: true,
+      links: []
     };
 
     this.toggleHidden = this.toggleHidden.bind(this);
   }
 
-  toggleHidden(e) {
+  toggleHidden(event) {
+    event.preventDefault()
     this.setState({
       isHidden: !this.state.isHidden
     });
+  }
+
+  componentDidMount() {
+    let items = this.props.links
+
+    items.forEach(item => {
+      this.setState(previous => ({
+        links: [...previous.links, item]
+      }))
+    })
   }
 
   render() {
     return (
       <React.Fragment>
         <HeaderWrapper>
-          {!this.state.isHidden && <Nav navToggle={this.toggleHidden} />}
+          {!this.state.isHidden && <Nav navToggle={this.toggleHidden} links={this.state.links}/>}
           <BurgerMenu onClick={this.toggleHidden}>
             <TopLine />
             <MidLine />
@@ -57,4 +70,20 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default () => (
+  <StaticQuery
+  query={graphql`
+    query NavTestQuery {
+      site {
+        siteMetadata {
+          menuLinks {
+            name
+            link
+          }
+        }
+      }
+    }
+  `}
+    render={data => <Header links={data.site.siteMetadata.menuLinks}/>}
+  />
+);

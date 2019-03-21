@@ -1,5 +1,5 @@
 import React from 'react'
-import { FilterDropdown } from './shopPreviewStyles'
+import { FilterDropdown } from './shopStyles'
 
 const Filter = () => {
   return (
