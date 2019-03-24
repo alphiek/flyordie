@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import React from "react";
+import { Link } from 'gatsby'
 import { NavContainer, Close, LinkWrapper, LinkRotate } from "./navStyles";
 import { color, fontSize } from "../../GlobalCss/variables";
 import styled from 'styled-components'

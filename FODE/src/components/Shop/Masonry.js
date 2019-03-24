@@ -11,21 +11,44 @@ import {
 
 const Gallery = (props) => {
    const childElements = props.galleryItems.map((item) => {
-    return (
-      <ShopItem key={item.node.id}>
-        <div>
-          <InfoWrapper>
-            <ProductDesc>{item.node.shopdescription}</ProductDesc>
-            <Divider />
-            <ShopperLink href={item.node.slug}>SHOP</ShopperLink>
-          </InfoWrapper>
-          <a href={`http://localhost:8000/${item.node.slug}`}>
-            <img src={item.node.image.url} alt={item.node.image.alt} />
-          </a>
-        </div>
-      </ShopItem>
-    )
-  })
+     let selected = props.selected
+     let filter = item.node.itemtype
+
+     if (filter === selected ) {
+       console.log(filter, selected)
+       return (
+         <ShopItem key={item.node.id}>
+           <div>
+             <InfoWrapper>
+               <ProductDesc>{item.node.shopdescription}</ProductDesc>
+               <Divider />
+               <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>SHOP</ShopperLink>
+             </InfoWrapper>
+             <a href={`http://localhost:8000/${item.node.slug}`}>
+               <img src={item.node.image.url} alt={item.node.image.alt} />
+             </a>
+           </div>
+         </ShopItem>
+       )} else if (!selected) {
+         return (
+           <ShopItem key={item.node.id}>
+             <div>
+               <InfoWrapper>
+                 <ProductDesc>{item.node.shopdescription}</ProductDesc>
+                 <Divider />
+                 <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>SHOP</ShopperLink>
+               </InfoWrapper>
+               <a href={`http://localhost:8000/${item.node.slug}`}>
+                 <img src={item.node.image.url} alt={item.node.image.alt} />
+               </a>
+             </div>
+           </ShopItem>
+         )
+       }
+     }
+   )
+
+
   return (
     <MasonryWrapper>
       <Masonry>

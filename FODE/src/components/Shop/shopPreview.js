@@ -15,8 +15,10 @@ class ShopPreview extends Component {
     super(props)
     this.state = {
       shopData: [],
-      selectOptions: []
+      selectOptions: [],
+      selected: ''
     }
+    this.handleMatch = this.handleMatch.bind(this)
   }
 
 componentDidMount() {
@@ -24,16 +26,30 @@ componentDidMount() {
 
   items.forEach(item => {
     this.setState(previous => ({
-      shopData: [...previous.shopData, item]
+      shopData: [...previous.shopData, item],
     }),
     () => {
+      this.setState({
+       selectOptions: []
+      }
+      )
       const uniqueItems = [...this.state.shopData.reduce((set, item) => set.add(item.node.itemtype), new Set())]
-      uniqueItems.forEach(item => {
-        this.setState({
-          selectOptions: item
-        })
-      })
+      let myArray = Array.from(uniqueItems[0])
+      myArray.forEach(item => {
+        this.setState(previous => ({
+          selectOptions: [...previous.selectOptions, item]
+        }))
     })
+  })
+})
+}
+
+handleMatch(e) {
+  e.preventDefault()
+  let value = e.target.value
+  console.log(value)
+  this.setState({
+    selected: value
   })
 }
 
@@ -48,10 +64,10 @@ render () {
             committed that with every purchase a portion of the proceeds are
             donated to this amazing charity to help others.
             </Blurb>
-          <Filter />
+          <Filter filterList={this.state.selectOptions} handleMatch={this.handleMatch}/>
         </InfoContainer>
       </RangeFlex>
-      <Gallery galleryItems={this.state.shopData} />
+      <Gallery galleryItems={this.state.shopData} selected={this.state.selected}/>
     </div>
   )
 }

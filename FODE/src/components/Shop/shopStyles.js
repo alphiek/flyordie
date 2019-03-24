@@ -136,7 +136,11 @@ export const RangeFlex = styled(Flex)`
   `;
 
 export const FilterDropdown = styled.select`
-  width: auto;
+  font-size: ${fontSize.medsmall};
+  color: ${color.primary};
+  text-align: center;
+  border-radius: 0.2em;
+  width: 12em;
   margin-top: 1.5em;
   display: block;
   padding: 0 0.2em;

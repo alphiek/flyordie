@@ -1,11 +1,16 @@
 import React from 'react'
 import { FilterDropdown } from './shopStyles'
 
-const Filter = () => {
+const Filter = (props) => {
   return (
      <label htmlFor='filter Options'>
-      <FilterDropdown name='filterOptions'>
-        <option value='tbc'>Options Here</option>
+      <FilterDropdown name='filterOptions' onChange={props.handleMatch}>
+       {props.filterList.map((item, i) => {
+         let itemName = item
+         return (
+            <option value={itemName}>{itemName}</option>
+         )
+       })}
       </FilterDropdown>
      </label>
   )
