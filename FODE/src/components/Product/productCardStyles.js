@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { color, fontSize, spacing, weight } from "../../GlobalCss/variables";
+import Img from 'gatsby-image'
 
 export const Flex = styled.div`
   display: flex;
@@ -121,8 +122,9 @@ flex-direction: row;
 }
 `;
 
-export const ImgWrapper = styled.img`
+export const ImgWrapper = styled(Img)`
   width: 23%;
+  padding: 1em;
   z-index: 4;
   @media (max-width: 991px) {
     width:30%;

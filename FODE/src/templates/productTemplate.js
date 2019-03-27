@@ -19,21 +19,23 @@ import Form from "../components/Form/Form";
 import { Pattern } from "../GlobalCss/containers";
 import patternLight from "../images/repeating-pattern.svg";
 import { color } from "../GlobalCss/variables";
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 
 export default ({ data }) => (
   <React.Fragment>
+    <HelmetDatoCms seo={data.datoCmsProduct.seoMetaTags} />
     <Pattern bgColor={color.secondary} background={patternLight} padding justify="center" >
       <ItemWrapper>
         <ImgWrapper
-          src={data.datoCmsProduct.image.url}
+          fluid={data.datoCmsProduct.image.fluid}
           alt={data.datoCmsProduct.image.alt}
         />
         <ImgWrapper
-          src={data.datoCmsProduct.image.url}
+          fluid={data.datoCmsProduct.image.fluid}
           alt={data.datoCmsProduct.image.alt}
         />
         <ImgWrapper
-          src={data.datoCmsProduct.image.url}
+          fluid={data.datoCmsProduct.image.fluid}
           alt={data.datoCmsProduct.image.alt}
         />
         <CardWrapper>
@@ -84,6 +86,9 @@ export const query = graphql`
   query ProductQuery($slug: String!) {
     datoCmsProduct(slug: { eq: $slug }) {
       id
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
       icon {
         url
         alt
@@ -92,8 +97,10 @@ export const query = graphql`
       info
       itemtype
       image {
-        url
         alt
+        fluid(maxWidth: 600, imgixParams: { fm: "png", auto: "compress" }) {
+        ...GatsbyDatoCmsFluid
+      }
       }
       price
     }

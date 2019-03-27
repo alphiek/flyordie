@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 
 const NewArrivals = () => (
   <React.Fragment>
-    <Pattern column bgColor={color.secondary} background={patternLight} padding>
+    <Pattern column bgColor={color.secondary} background={patternLight} padding style={{ height: '15em'}}>
       <h1>This is the page for New Arrivals</h1>
     </Pattern>
     <Footer />

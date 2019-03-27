@@ -86,9 +86,11 @@ export default () => (
               range
               itemtype
               image {
-                url
                 alt
-              }
+                fluid(maxWidth: 600, imgixParams: { fm: "png", auto: "compress" }) {
+                ...GatsbyDatoCmsFluid
+                 }
+                }
               shopdescription
               slug
             }

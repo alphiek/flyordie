@@ -105,7 +105,7 @@ export const InfoContainer = styled(Flex)`
 export const RangeFlex = styled(Flex)`
   flex-direction: row;
   height: 13em;
-  margin-top:-2em;
+  margin-top: -4em;
   margin-bottom: -0.1em;
   padding-bottom: 2%;
   width: 100%;
@@ -130,6 +130,7 @@ export const RangeFlex = styled(Flex)`
     background: ${color.white};
     text-align: left;
     padding: 0.2em 1em;
+    z-index: 2;
     @media (max-width: 991px) {
       padding: 0.6em 0.8em;
     }
@@ -137,10 +138,12 @@ export const RangeFlex = styled(Flex)`
 
 export const FilterDropdown = styled.select`
   font-size: ${fontSize.medsmall};
-  color: ${color.primary};
+  background-color: ${color.primary};
+  border: 0.3em solid ${color.dullgreen};
+  color: ${color.secondary};
   text-align: center;
   border-radius: 0.2em;
-  width: 12em;
+  width: 15em;
   margin-top: 1.5em;
   display: block;
   padding: 0 0.2em;
