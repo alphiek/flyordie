@@ -24,7 +24,7 @@ export const Subheading = styled.h2`
 
 export const ItemWrapper = styled(Flex)`
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   width: 80vw;
   margin-bottom: 5em;
   @media (max-width: 991px) {

@@ -7,8 +7,9 @@ const Filter = (props) => {
       <FilterDropdown name='filterOptions' onChange={props.handleMatch}>
        {props.filterList.map((item, i) => {
          let itemName = item
+         let index = i
          return (
-            <option value={itemName}>{itemName}</option>
+            <option key={index} value={itemName}>{itemName}</option>
          )
        })}
       </FilterDropdown>

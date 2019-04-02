@@ -15,7 +15,7 @@ export default function HTML(props) {
          dangerouslySetInnerHTML={{
            __html: `
             if(navigator.appName.indexOf("Internet Explorer")!=-1 || navigator.userAgent.match(/Trident.*rv[ :]*11\./))
-            { window.location = "http://localhost:8000/404/" };
+            { window.location = "http://nick-feltham.xyz" };
           `}}
         />
         {props.headComponents}

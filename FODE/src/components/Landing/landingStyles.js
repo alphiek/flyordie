@@ -44,7 +44,7 @@ export const LandingWrapper = styled.main`
 `;
 export const Flex = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   z-index: 3;
 `;
@@ -122,7 +122,7 @@ export const Logo = styled.img`
 }
 `;
 export const LinkWrap = styled(Flex)`
-  width: 15em;
+  width: 10em;
   @media (max-width: 991px) {
     position: absolute;
     bottom: 0;
@@ -137,7 +137,7 @@ export const Divider = styled.span`
   margin-top: 0.65em;
   margin-bottom: 0.65em;
   width: 20em;
-  height: 0.3em;
+  height: 0.2em;
   background: ${color.primary};
 
   @media (max-width: 991px) {
@@ -145,10 +145,9 @@ export const Divider = styled.span`
   }
 `;
 export const LinkDivider = styled.span`
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
-  height: 0.28em;
-  width: 1.2em;
+  border-radius: 50%;
+  height: 0.3em;
+  width: 0.3em;
   background: ${color.primary};
 
   @media (max-width: 991px) {

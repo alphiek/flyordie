@@ -5,7 +5,6 @@ import {
     ShopItem,
     InfoWrapper,
     ProductDesc,
-    Divider,
     ShopperLink
 } from './shopStyles'
 import Img from 'gatsby-image'
@@ -20,31 +19,32 @@ const Gallery = (props) => {
        return (
          <ShopItem key={item.node.id}>
            <div>
-             <InfoWrapper>
-               <ProductDesc>{item.node.shopdescription}</ProductDesc>
-               <Divider />
-               <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>SHOP</ShopperLink>
-             </InfoWrapper>
-             <a href={`http://localhost:8000/${item.node.slug}`}>
+             <a href={`/${item.node.slug}`}>
                <Img fluid={imageDetails} alt={item.node.image.alt} />
              </a>
+             <InfoWrapper>
+               <ProductDesc>{item.node.shopdescription}</ProductDesc>
+               <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>{item.node.price.toLocaleString('en-GB', { style: 'currency', currency: 'GBP'})}</ShopperLink>
+             </InfoWrapper>
            </div>
          </ShopItem>
        )} else if (!selected) {
          return (
            <ShopItem key={item.node.id}>
              <div>
-               <InfoWrapper>
-                 <ProductDesc>{item.node.shopdescription}</ProductDesc>
-                 <Divider />
-                 <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>SHOP</ShopperLink>
-               </InfoWrapper>
                <a href={`http://localhost:8000/${item.node.slug}`}>
                  <Img fluid={imageDetails} alt={item.node.image.alt} />
                </a>
+               <InfoWrapper>
+                 <ProductDesc>{item.node.shopdescription}</ProductDesc>
+                 <ShopperLink href={`http://localhost:8000/${item.node.slug}`}>{item.node.price.toLocaleString('en-GB', { style: 'currency', currency: 'GBP'})}</ShopperLink>
+               </InfoWrapper>
              </div>
            </ShopItem>
          )
+       }
+       else {
+         return null
        }
      }
    )

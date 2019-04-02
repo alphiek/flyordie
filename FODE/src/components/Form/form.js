@@ -30,7 +30,7 @@ const SignUp = ({
           onChange={handleChange}
           placeholder="Enter your Name"
           onBlur={handleBlur}
-          value={values.name}
+          value={values.name || ''}
           name="name"
         />
         {errors.name && touched.name && (
@@ -42,7 +42,7 @@ const SignUp = ({
           type="email"
           onChange={handleChange}
           onBlur={handleBlur}
-          value={values.email}
+          value={values.email || ''}
           name="email"
           placeholder="Enter your Email"
           noValidate

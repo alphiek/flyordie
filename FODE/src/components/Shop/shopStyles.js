@@ -52,9 +52,7 @@ export const ShopItem = styled(Wrapper)`
   background-color: ${color.white};
   margin: 0.5em;
   width: 20%;
-  padding: 0.5em;
   z-index: 5;
-  border-radius: 0.2em;
   @media (max-width: 1200px) {
     width:30%;
   }
@@ -122,14 +120,13 @@ export const RangeFlex = styled(Flex)`
   `;
 
   export const InfoWrapper = styled(Flex)`
-    position: absolute;
-    height: auto;
     width: auto;
-    bottom: 1.5em;
-    left: 0;
+    -webkit-box-shadow: 3px 10px 20px -2px rgba(0,0,0,0.42);
+    -moz-box-shadow: 3px 10px 20px -2px rgba(0,0,0,0.42);
+    box-shadow: 3px 10px 20px -2px rgba(0,0,0,0.42);
     background: ${color.white};
-    text-align: left;
-    padding: 0.2em 1em;
+    text-align: center;
+    padding: 0.5em 1em;
     z-index: 2;
     @media (max-width: 991px) {
       padding: 0.6em 0.8em;

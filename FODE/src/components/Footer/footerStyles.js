@@ -5,7 +5,7 @@ export const Anchor = styled.a`
   font-size: ${fontSize.small};
   letter-spacing: ${spacing.wide};
   color: ${props => props.color};
-  text-transform: ${props => (props.transform ? "uppercase" : "none")};
+  text-transform: ${props => (props.case ? "uppercase" : "none")};
   @media (max-width:991px) {
     font-size: ${fontSize.body};
   }

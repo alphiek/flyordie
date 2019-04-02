@@ -83,6 +83,7 @@ export default () => (
             node {
               id
               shopdescription
+              price
               range
               itemtype
               image {

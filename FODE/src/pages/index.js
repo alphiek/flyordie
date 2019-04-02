@@ -1,6 +1,7 @@
 import React from 'react'
 import Landing from '../components/Landing/Landing'
 import { Helmet } from 'react-helmet'
+import { ImageOG } from '../images/Optimized/ImageOG'
 
 const IndexPage = () => (
   <React.Fragment>
@@ -8,27 +9,30 @@ const IndexPage = () => (
     <html lang="en"/>
     <title>House of FODE - London made and designed, eco-friendly streetwear</title>
     <meta name="description" content="Existing to Deliver Everything you need to look Fresh, Stylish and Fly!"></meta>
+
     <meta property="og:url" content="https://fode.org.uk"></meta>
     <meta property="og:type" content="website"></meta>
     <meta property="og:title" content="House of FODE - London made and designed, eco-friendly streetwear"></meta>
-    <meta property="og:image" content="tbc"></meta>
+    <meta property="og:image" content={ImageOG}></meta>
     <meta property="og:image:width" content="1200"></meta>
     <meta property="og:image:height" content="630"></meta>
     <meta property="og:description" content="Existing to Deliver Everything you need to look Fresh, Stylish and Fly!"></meta>
     <meta property="og:site_name" content="House of FODE"></meta>
-    <meta name="twitter:card" content="summary"></meta>
-    <meta name="twitter:site" content="@site_account"></meta>
-    <meta name="twitter:url" content="https://example.com/page.html"></meta>
-    <meta name="twitter:title" content="Content Title"></meta>
-    <meta name="twitter:description" content="Content description less than 200 characters"></meta>
-    <meta name="twitter:image" content="tbc"></meta>
+
+    <meta name="twitter:card" content="summary_large_image"></meta>
+    <meta name="twitter:site" content="@fode_of"></meta>
+    <meta name="twitter:url" content="https://fode.org.uk"></meta>
+    <meta name="twitter:title" content="House of FODE"></meta>
+    <meta name="twitter:description" content="London made and designed, eco-friendly streetwear"></meta>
+    <meta name="twitter:image" content={ImageOG}></meta>
+
     <script type="application/ld+json">{`
         {
             "@context": "http://schema.org",
             "@type": "ClothingStore",
             "name": "House of FODE",
             "description": "London made and designed, eco-friendly streetwear",
-            "image": "tbc",
+            "image": ${ImageOG},
             "logo": "tbc",
             "@id": "https://fode.org.uk/",
             "url": "https://fode.org.uk/",

@@ -17,7 +17,7 @@ const LinkWrapper = () => (
   <LinksContainer>
     <LinkItem>
       <Anchor
-        transform
+        case
         color={color.white}
         href="http://localhost:8000/static/privacy-policy-51fa98b3823b6a3c01549f1a8329a7be.pdf"
         target="_blank"
@@ -31,7 +31,7 @@ const LinkWrapper = () => (
     </LinkItem>
     <LinkItem>
       <Anchor
-        transform
+        case
         color={color.white}
         href="http://localhost:8000/static/terms-of-use-e595ca762c750a4691c0defcc8c70389.pdf"
         target="_blank"

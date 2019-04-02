@@ -3,7 +3,7 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: `House of FODE`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Existing to Deliver Everything you need to look Fresh, Stylish and Fly!`,
     author: `RKK Creative`,
     name: "FLY OR DIE ENTERPRISES",
     street: "Such and such address",
@@ -14,8 +14,8 @@ module.exports = {
     insta: "https://www.instagram.com/houseoffode/",
     menuLinks: [
       {
-        name: "New Arrivals",
-        link: "/newarrivals"
+        name: "Offers",
+        link: "/offers"
       },
       {
         name: "Shop",
@@ -63,7 +63,7 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_KEY,
-        previewMode: true,
+        previewMode: false,
         disableLiveReload: false,
         apiUrl: "https://site-api.datocms.com"
       }

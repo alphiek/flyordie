@@ -29,7 +29,7 @@ const LinkShop = styled(Link)`
   text-transform: uppercase;
 
   :hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
   @media (max-width: 991px) {
     color: ${color.lightblue};
@@ -56,7 +56,7 @@ const Landing = () => (
               <LandingTitle>We all die but not all of us fly!</LandingTitle>
               <Divider />
               <LinkWrap>
-                <LinkNew to="/newarrivals/">New Arrivals</LinkNew>
+                <LinkNew to="/offers/">Offers</LinkNew>
                 <LinkDivider />
                 <LinkShop to="/shop/">Shop</LinkShop>
               </LinkWrap>

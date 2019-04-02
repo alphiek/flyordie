@@ -72,7 +72,7 @@ export const FaqItem = styled.div`
   margin: 0.5em 1em;
   text-align: center;
 `;
-export const InfoButton = styled.button`
+export const InfoButton = styled.div`
   position: absolute;
   top: 1.1em;
   right: 0.5em;
