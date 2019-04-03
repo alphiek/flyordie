@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import { AnchorNav } from "./headerStyles";
+import styled from 'styled-components';
+import { fontSize, spacing, color, weight } from "../../GlobalCss/variables";
+
+const AnchorNav = styled.a`
+  font-size: ${fontSize.body};
+  letter-spacing: ${spacing.wide};
+  color: ${color.primary};
+  text-transform: uppercase;
+  font-weight: ${weight.bold};
+  padding-right: 2.5em;
+  @media (max-width: 767px) {
+    font-size: ${fontSize.body};
+  }
+`;
 
 class LogIn extends Component {
   constructor() {

@@ -20,10 +20,12 @@ class Header extends Component {
     super(props);
     this.state = {
       isHidden: true,
-      links: []
+      links: [],
+      renderLogin: true,
     };
 
     this.toggleHidden = this.toggleHidden.bind(this);
+    this.updatePredicate = this.updatePredicate.bind(this)
   }
 
   toggleHidden(event) {
@@ -36,11 +38,22 @@ class Header extends Component {
   componentDidMount() {
     let items = this.props.links
 
+    this.updatePredicate();
+    window.addEventListener('resize', this.updatePredicate)
+
     items.forEach(item => {
       this.setState(previous => ({
         links: [...previous.links, item]
       }))
     })
+  }
+
+  componentWillUnmount() {
+     window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate() {
+     this.setState({ renderLogin: window.innerHeight > 593 && window.innerWidth > 1230 });
   }
 
   render() {
@@ -54,9 +67,11 @@ class Header extends Component {
             <BottomLine />
           </BurgerMenu>
           <SnipcartContainer>
-            <LogIn />
+          {this.state.renderLogin ? <LogIn /> : null}
             <CartWrapper>
-              <a href="www.#.com" className="snipcart-checkout">
+              <a href="www.#.com"
+                 rel="noopener noreferrer"
+                 className="snipcart-checkout">
                 <Cart src={cart} alt="Checkout Icon" />
               </a>
               <div className="snipcart-summary">

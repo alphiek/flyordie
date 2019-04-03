@@ -80,17 +80,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `house-of-fode`,
-        short_name: `fode`,
+        name: `HouseofFode`,
+        short_name: `FODE`,
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#000000`,
-        display: `minimal-ui`,
-        icon: `src/images/fode-logo.png` // This path is relative to the root of the site.
+        display: `standalone`,
+        icon: `src/images/fode-logo.png`,
+        include_favicon: true,
       }
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    },
+    'gatsby-plugin-offline',
   ]
 };

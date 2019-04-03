@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fontSize, spacing, color, weight } from "../../GlobalCss/variables";
+import { color } from "../../GlobalCss/variables";
 
 export const HeaderWrapper = styled.header`
   width: 100%;
@@ -26,7 +26,7 @@ export const CartWrapper = styled(Flex)`
   height: 3em;
 `;
 export const SnipcartContainer = styled(Flex)`
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 7.5em;
   margin-right: 0.5em;
@@ -58,17 +58,6 @@ export const Items = styled.span`
   line-height: 140%;
 `;
 
-export const AnchorNav = styled.a`
-  font-size: ${fontSize.body};
-  letter-spacing: ${spacing.wide};
-  color: ${color.primary};
-  text-transform: uppercase;
-  font-weight: ${weight.bold};
-  @media (max-width: 767px) {
-    font-size: ${fontSize.body};
-  }
-
-`;
 
 export const TopLine = styled.span`
   width: 100%;

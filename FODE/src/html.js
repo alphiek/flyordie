@@ -11,6 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <link rel="preload" href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" as="style"/>
+        <link rel="dns-prefetch" href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" />
         <script
          dangerouslySetInnerHTML={{
            __html: `

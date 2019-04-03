@@ -1,8 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600,700');
-
 
   html {
     -ms-text-size-adjust: 100%;
