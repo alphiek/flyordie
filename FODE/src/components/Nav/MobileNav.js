@@ -1,7 +1,26 @@
-import styled from "styled-components";
-import { color } from "../../GlobalCss/variables";
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { color, fontSize } from "../../GlobalCss/variables";
 
-
+const NavContainer = styled.nav`
+  height: 100vh;
+  width: 4em;
+  position: absolute;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 700;
+  background-color: ${color.primary};
+  transform: scaleY(1);
+  transform-origin: bottom;
+  @media screen only (max-width: 991px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: column;
+  }
+`
 
 export const LinkWrapper = styled.div`
   height: 80vh;
@@ -61,3 +80,24 @@ export const Close = styled.div`
 
   }
 `;
+
+const MobileNav = (props) => {
+  return (
+    <NavContainer onMouseLeave={props.navToggle} >
+      <Close onClick={props.navToggle} >&times;</Close>
+      <LinkWrapper onClick={props.navToggle}>
+        {props.links.map(link => (
+          <LinkRotate key={link.name}>
+            <NavLink
+            to={link.link}
+            activeStyle={activeStyle}>
+            {link.name}
+            </NavLink>
+          </LinkRotate>
+        ))}
+      </LinkWrapper>
+    </NavContainer>
+  )
+}
+
+export default MobileNav

@@ -1,19 +1,34 @@
 import React, { Component } from "react";
-import {
-  Cart,
-  Items,
-  SnipcartContainer,
-  HeaderWrapper,
-  BurgerMenu,
-  CartWrapper,
-  TopLine,
-  MidLine,
-  BottomLine
-} from "./headerStyles";
-import cart from "../../images/cartnew.svg";
-import Nav from "../Nav/Nav";
-import LogIn from "./LogIn";
 import { StaticQuery, graphql } from "gatsby";
+import Nav from "../Nav/Nav";
+import SnipcartCheckout from './SnipcartCheckout'
+import Burger from './BurgerMenu'
+import LogIn from "./LogIn";
+
+
+const HeaderWrapper = styled.header`
+  width: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 0;
+  z-index: 666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+`;
+
+
+const SnipcartContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 7.5em;
+  margin-right: 0.5em;
+`;
+
 
 class Header extends Component {
   constructor(props) {
@@ -22,6 +37,7 @@ class Header extends Component {
       isHidden: true,
       links: [],
       renderLogin: true,
+      renderDesktopNav: true,
     };
 
     this.toggleHidden = this.toggleHidden.bind(this);
@@ -53,32 +69,34 @@ class Header extends Component {
   }
 
   updatePredicate() {
-     this.setState({ renderLogin: window.innerHeight > 593 && window.innerWidth > 1230 });
+     this.setState({
+       renderLogin: window.innerHeight > 593 && window.innerWidth > 1230,
+       renderDesktopNav: window.innerWidth > 991,
+     });
   }
 
   render() {
     return (
       <React.Fragment>
         <HeaderWrapper>
-          {!this.state.isHidden && <Nav navToggle={this.toggleHidden} links={this.state.links}/>}
-          <BurgerMenu onClick={this.toggleHidden}>
-            <TopLine />
-            <MidLine />
-            <BottomLine />
-          </BurgerMenu>
-          <SnipcartContainer>
-          {this.state.renderLogin ? <LogIn /> : null}
-            <CartWrapper>
-              <a href="www.#.com"
-                 rel="noopener noreferrer"
-                 className="snipcart-checkout">
-                <Cart src={cart} alt="Checkout Icon" />
-              </a>
-              <div className="snipcart-summary">
-                <Items className="snipcart-total-items" />
-              </div>
-            </CartWrapper>
-          </SnipcartContainer>
+          {
+            !this.state.isHidden &&
+            <Nav
+              navToggle={this.toggleHidden}
+              links={this.state.links}
+              show={this.state.renderDesktopNav}
+            />
+          }
+            <Burger
+              onClick={this.toggleHidden}
+            />
+            <SnipcartContainer>
+              {
+                this.state.renderLogin ?
+                  <LogIn /> : null
+              }
+              <SnipcartCheckout />
+            </SnipcartContainer>
         </HeaderWrapper>
       </React.Fragment>
     );

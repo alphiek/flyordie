@@ -1,26 +1,21 @@
 import React from 'react'
 import { Link } from "gatsby";
 import styled from 'styled-components'
-import { color, fontSize, weight, spacing } from "../../GlobalCss/variables";
+import { color, fontSize, weight } from "../../GlobalCss/variables";
 
-export const Flex = styled.div`
+const LinkWrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 3;
-`;
-
-export const LinkWrap = styled(Flex)`
   width: 10em;
 `;
 
-export const LinkDivider = styled.span`
+const LinkDivider = styled.span`
   border-radius: 50%;
   height: 0.3em;
   width: 0.3em;
   background: ${color.primary};
-  @media (max-width: 1280px) {
-   display: none;
   }`;
 
 
@@ -49,36 +44,58 @@ const LinkShop = styled(Link)`
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {
    font-size: 1.6em;
   }
-
-  @media (min-width: 481px) and (max-width: 767px) {
-   display: none;
-  }
-
-  @media (min-width: 320px) and (max-width: 480px) {
-   display: none;
-  }
-
-
 `;
 
 const LinkNew = styled(LinkShop)`
   color: ${color.dullblue};
-
-  @media (max-width: 1280px) {
-    display: none;
-  }
 `;
 
 
+const MobileLinkContainer = styled.div`
+  height: 6em;
+  background-color: ${color.primary};
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-const LinkWrapperDesktop = () => {
+  @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape) {
+    display: none;
+  }
+
+`
+const LinkMobile = styled(Link)`
+  font-size: ${fontSize.largeLink};
+  font-weight: ${weight.semib};
+  color: ${color.lightblue};
+  z-index: 8;
+  text-transform: uppercase;
+`
+
+export const LinkWrapperDesktop = (props) => {
+  const show = props.linkNew
   return (
     <LinkWrap>
-      <LinkNew to="/offers/">Offers</LinkNew>
-      <LinkDivider />
+      {
+        show ?
+        <React.Fragment>
+          <LinkNew to="/offers/">Offers</LinkNew>
+          <LinkDivider />
+        </React.Fragment>
+        :
+        null
+      }
       <LinkShop to="/shop/">Shop</LinkShop>
     </LinkWrap>
   )
 }
 
-export default LinkWrapperDesktop
+export const ShopLinkMobile = () => {
+  return (
+    <MobileLinkContainer>
+       <LinkMobile to='/shop'>Shop</LinkMobile>
+    </MobileLinkContainer>
+  )
+}

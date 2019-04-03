@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 import { color, fontSize, weight, spacing } from "../../GlobalCss/variables";
 
-export const LandingTitle = styled.h1`
+const LandingTitle = styled.h1`
   font-size: ${fontSize.large};
   color: ${color.primary};
   text-transform: uppercase;
@@ -53,7 +54,7 @@ export const LandingTitle = styled.h1`
 }`;
 
 
-export const Divider = styled.span`
+const Divider = styled.span`
   margin-top: 0.65em;
   margin-bottom: 0.65em;
   width: 21vw;
@@ -79,11 +80,16 @@ export const Divider = styled.span`
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {
     display: 10vw;
   }
+`
 
-  @media (min-width: 481px) and (max-width: 767px) {
-    display: none;
-  }
+const Title = (props) => {
+  const show = props.divider
+  return (
+    <React.Fragment>
+      <LandingTitle>We all die but not all of us fly!</LandingTitle>
+      {show ? <Divider /> : null}
+    </React.Fragment>
+  )
+}
 
-  @media (min-width: 320px) and (max-width: 480px) {
-    display: none;
-}`;
+export default Title

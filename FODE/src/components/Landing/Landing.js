@@ -5,16 +5,11 @@ import SquirrelDesktop from './SquirrelDesktop'
 import SquirrelMobile from './SquirrelMobile'
 import { WhiteCircle, ThreeCircles } from './Circles'
 import Logo from './Logo'
-import LinkWrapperDesktop from './linkWrapperDesktop'
+import Title from './Title'
+import { LinkWrapperDesktop, ShopLinkMobile } from './linkWrapper'
 
 import patternLight from "../../images/repeating-pattern.svg";
 import { color } from "../../GlobalCss/variables";
-
-import {
-  LandingTitle,
-  Divider
-} from "./landingStyles";
-
 
 const LandingWrapper = styled.main`
   width: 100%;
@@ -54,7 +49,11 @@ class Landing extends Component {
      this.state = {
        squirrelCircle: true,
        squirrelDesktop: true,
-       squirrelMobile: false
+       squirrelMobile: false,
+       divider: true,
+       linkNew: true,
+       linkWrapperDesktop: true,
+       shopLinkMobile: false,
      }
      this.updatePredicate = this.updatePredicate.bind(this)
    }
@@ -73,7 +72,10 @@ updatePredicate() {
      squirrelCircle: window.innerWidth >= 1280,
      squirrelDesktop: window.innerWidth >= 1280,
      squirrelMobile: window.innerWidth < 1280,
-     linkWrapperDesktop: []
+     linkWrapperDesktop: window.innerWidth > 765,
+     linkNew: window.innerWidth > 1280,
+     divider: window.innerWidth > 765,
+     shopLinkMobile: window.innerWidth < 764,
    });
 }
 
@@ -87,13 +89,18 @@ updatePredicate() {
               {this.state.squirrelMobile ? <SquirrelMobile /> : null}
                 <WhiteCircle>
                   <Logo />
-                  <LandingTitle>We all die but not all of us fly!</LandingTitle>
-                  <Divider />
-                  <LinkWrapperDesktop />
+                  <Title divider={this.state.divider}/>
+                  {
+                    this.state.linkWrapperDesktop ?
+                    <LinkWrapperDesktop linkNew={this.state.linkNew} />
+                    :
+                    null
+                  }
                 </WhiteCircle>
             </ ThreeCircles>
           {this.state.squirrelDesktop ? <SquirrelDesktop /> : null}
         </CircleWrapper>
+        {this.state.shopLinkMobile ? <ShopLinkMobile /> : null}
       </LandingWrapper>
     )
   }
