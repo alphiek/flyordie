@@ -19,11 +19,11 @@ const SquMob = styled.img`
   and (max-device-width: 812px)
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: landscape) {
-    width: 7em;
-    top: -2em;
+    width: 8em !important;
+    top: -2em !important;
 }
 
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     top: -5em;
     width: 14em;
   }

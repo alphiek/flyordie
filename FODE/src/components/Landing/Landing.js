@@ -37,8 +37,12 @@ const CircleWrapper = styled.div`
     margin-top: 0;
   }
 
+  @media (min-width: 481px) and (max-width: 767px) and (orientation: portrait) {
+    margin-top: -10%;
+  }
+
   @media (min-width: 320px) and (max-width: 480px) {
-    margin-top: -20%;
+    margin-top: -30%;
 }
 `;
 

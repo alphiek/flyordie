@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { color, fontSize } from "../../GlobalCss/variables";
+import { color } from "../../GlobalCss/variables";
 
 const NavContainer = styled.nav`
   height: 100vh;

@@ -84,5 +84,3 @@ export default () => (
     render={data => <FaqListItem faqs={data.allDatoCmsFaq} />}
   />
 );
-
-{/*Add PropTypes*/}

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Nav from "../Nav/Nav";
 import SnipcartCheckout from './SnipcartCheckout'
-import Burger from './BurgerMenu'
+import Burger from './Burger'
 import LogIn from "./LogIn";
+import styled from 'styled-components'
 
 
 const HeaderWrapper = styled.header`
@@ -18,6 +19,10 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+   padding-top: 0.5em;
+  }
 `;
 
 
@@ -71,7 +76,7 @@ class Header extends Component {
   updatePredicate() {
      this.setState({
        renderLogin: window.innerHeight > 593 && window.innerWidth > 1230,
-       renderDesktopNav: window.innerWidth > 991,
+       renderDesktopNav: window.innerWidth > 1279
      });
   }
 
@@ -84,12 +89,17 @@ class Header extends Component {
             <Nav
               navToggle={this.toggleHidden}
               links={this.state.links}
-              show={this.state.renderDesktopNav}
+              showDesktop={this.state.renderDesktopNav}
             />
           }
+          {
+            this.state.isHidden ?
             <Burger
-              onClick={this.toggleHidden}
-            />
+                onClick={this.toggleHidden}
+              />
+              :
+              null
+           }
             <SnipcartContainer>
               {
                 this.state.renderLogin ?

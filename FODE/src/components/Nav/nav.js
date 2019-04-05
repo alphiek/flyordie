@@ -2,19 +2,22 @@ import React from "react";
 import SideNav from './SideNav'
 import MobileNav from './MobileNav'
 
-const Nav = (props) =>
+
+const Nav = (props) => {
     return (
-      { props.show ?
+      <div>
+      {props.showDesktop ?
         <SideNav
           navToggle={props.navToggle}
           links={props.links}
           />
-        :
-        <MobileNav
+          :
+       <MobileNav
           navToggle={props.navToggle}
           links={props.links}
-          />
-      }
+         />
+       }
+      </div>
     )
   }
 

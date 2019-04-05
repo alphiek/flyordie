@@ -1,9 +1,8 @@
 import React from 'react'
 import { Pattern } from "../../GlobalCss/containers";
-import PropTypes from "prop-types";
 import patternLight from "../../images/repeating-pattern.svg";
 import { color } from "../../GlobalCss/variables";
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import logoholding from "../../images/logoholding.svg";
 import styled from 'styled-components'
 
@@ -26,7 +25,7 @@ const LinkWrapper = styled.div`
   border-radius: 0.2em;
 `
 
-export const Error = ({ data }) => (
+const Error = ({ data }) => (
   <Pattern
     column
     bgColor={color.secondary}
@@ -37,34 +36,9 @@ export const Error = ({ data }) => (
       <Title>NOT FOUND</Title>
       <Message>You just hit a route that doesn&#39;t exist... the sadness.</Message>
       <LinkWrapper>
-      <Link to={data.site.siteMetadata.menuLinks.link} style={{ color: color.white }}>Return to the Home Page</Link>
+      <Link to='/' style={{ color: color.white }}>Return to the Home Page</Link>
       </LinkWrapper>
   </Pattern>
 );
 
-
-export const query = graphql`
-  query ErrorQuery {
-    site {
-      siteMetadata {
-        menuLinks {
-          name
-          link
-        }
-      }
-    }
-  }
-`;
-
-
-Error.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        menuLinks: PropTypes.object.isRequired,
-          name: PropTypes.string.isRequired,
-          link: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
-  }).isRequired
-};
+export default Error
