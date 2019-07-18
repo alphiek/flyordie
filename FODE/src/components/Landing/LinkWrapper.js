@@ -44,6 +44,10 @@ const LinkShop = styled(Link)`
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)  {
    font-size: 1.6em;
   }
+
+  @media only screen and (max-height: 730px) {
+    display: none !important;
+  }
 `;
 
 const LinkNew = styled(LinkShop)`

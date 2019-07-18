@@ -32,7 +32,7 @@ const IndexPage = () => (
             "@type": "ClothingStore",
             "name": "House of FODE",
             "description": "London made and designed, eco-friendly streetwear",
-            "image": ${ImageOG},
+            "image": "image",
             "logo": "tbc",
             "@id": "https://fode.org.uk/",
             "url": "https://fode.org.uk/",

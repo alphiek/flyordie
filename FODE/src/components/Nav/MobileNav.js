@@ -62,7 +62,7 @@ const NavLink = styled(Link)`
   white-space: nowrap;
   font-size: 1.5em;
 
-  @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape) {
+  @media screen only (min-width: 481px) and (max-width: 767px) and (orientation: landscape) {
     font-size: 1em;
   }
 `
